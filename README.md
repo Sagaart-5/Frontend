@@ -3,13 +3,17 @@
 Проект представляет собой MVP web-приложения для онлайн-галереи, представленное командой №5 в рамках Хакатон+ по задаче от sagaart.
 
 [**Ссылка на сайт**]()
+
 [**Макет Фигма**](https://www.figma.com/file/6rQfXhHHs2luaL3xaYD5Z7?node-id=36:124&locale=en&type=design)
+
 [**Ссылка на билд (Яндекс Диск)**]()
+
 [**Ссылка на скриншоты (Яндекс Диск)**]()
 
 ## О команде
 
 [Елизавета](https://github.com/lizananeva) [<span><img src="https://cdn-icons-png.flaticon.com/128/906/906377.png" height="25" align="center" alt="Telegram" title="Telegram" style="right" /></span>](https://t.me/lizananeva) - Описание проделанной работы появится позже.
+
 [Николай](https://github.com/k0t1k777) [<span><img src="https://cdn-icons-png.flaticon.com/128/906/906377.png" height="25" align="center" alt="Telegram" title="Telegram" style="right" /></span>](https://t.me/ni_kolyaus) - Описание проделанной работы появится позже.
 
 ## Стек технологий
@@ -17,10 +21,10 @@
 ![Static Badge](https://img.shields.io/badge/react-20232a?style=for-the-badge&logo=react)
 ![Static Badge](https://img.shields.io/badge/typescript-3178c6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Static Badge](https://img.shields.io/badge/redux_toolkit-764abc?style=for-the-badge&logo=redux&logoColor=white)
-![Static Badge](https://img.shields.io/badge/react_router-white?style=for-the-badge&logo=react%20router)
+![Static Badge](https://img.shields.io/badge/react_router-faf9f6?style=for-the-badge&logo=react%20router)
 ![Static Badge](https://img.shields.io/badge/react_hook_form-ec5990?style=for-the-badge&logo=react%20hook%20form&logoColor=white)
 ![Static Badge](https://img.shields.io/badge/yup-black?style=for-the-badge&logo=yup&logoColor=white)
-![Static Badge](https://img.shields.io/badge/material_ui-white?style=for-the-badge&logo=mui)
+![Static Badge](https://img.shields.io/badge/material_ui-faf9f6?style=for-the-badge&logo=mui)
 ![Static Badge](https://img.shields.io/badge/scss-hotpink?style=for-the-badge&logo=sass&logoColor=white)
 ![Static Badge](https://img.shields.io/badge/html5-e34c26?style=for-the-badge&logo=html5&logoColor=white)
 
@@ -50,7 +54,7 @@ npm ci
 npm run build
 ```
 
-Для просмотра сборки локально введите:
+Для просмотра сборки локально выполните команду:
 
 ```bash
 npm run serve
@@ -58,7 +62,7 @@ npm run serve
 
 Приложение будет доступно по адресу: [http://localhost:4173](http://localhost:4173/)
 
-Для запуска в режиме разработки введите:
+Для запуска в режиме разработки выполните команду:
 
 ```bash
 npm run dev
@@ -69,6 +73,7 @@ npm run dev
 ## Ссылки на материалы
 
 **Библиотеки**
+
 В приложении использовались следующие библиотеки:
 
 - [React](https://react.dev/)
@@ -81,9 +86,11 @@ npm run dev
 - [SASS](https://github.com/sass/dart-sass)
 
 **Шрифты**
+
 В приложении использовались следующие шрифты: Cochin для заголовков, Benzin для подзаголовков, Bahnschrift и [Inter](https://fonts.google.com/specimen/Inter) для основного текста.
 
 **Иконки SVG**
+
 Все иконки SVG взяты из [макета](https://www.figma.com/file/6rQfXhHHs2luaL3xaYD5Z7?node-id=36:124&locale=en&type=design).
 
 ## SCSS
