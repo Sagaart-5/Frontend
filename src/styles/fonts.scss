@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'Cochin';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('src/assets/fonts/Cochin/Cochin-Regular.woff2') format('woff2'),
+    url('src/assets/fonts/Cochin/Cochin-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Cochin';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('src/assets/fonts/Cochin/Cochin-Bold.woff2') format('woff2'),
+    url('src/assets/fonts/Cochin/Cochin-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Benzin';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('src/assets/fonts/Benzin/Benzin-Regular.woff2') format('woff2'),
+    url('src/assets/fonts/Benzin/Benzin-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Benzin';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('src/assets/fonts/Benzin/Benzin-Bold.woff2') format('woff2'),
+    url('src/assets/fonts/Benzin/Benzin-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Bahnschrift';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('src/assets/fonts/Bahnschrift/Bahnschrift-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Bahnschrift';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('src/assets/fonts/Bahnschrift/Bahnschrift-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('src/assets/fonts/Inter/Inter-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('src/assets/fonts/Inter/Inter-SemiBold.ttf') format('truetype');
+}
