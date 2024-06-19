@@ -27,3 +27,144 @@
   padding: 0;
   margin: 0;
 }
+
+@mixin forPrimaryText {
+  font-family: $fontPrimary;
+  font-weight: 700;
+  color: inherit;
+}
+
+@mixin forSecondaryText {
+  font-family: $fontSecondary;
+  font-weight: 400;
+  color: inherit;
+}
+
+@mixin forButtonText {
+  @include forSecondaryText;
+  font-weight: 600;
+}
+
+@mixin textSectionTitle {
+  @include forPrimaryText;
+  font-size: 34px;
+  line-height: 40px;
+}
+
+@mixin textInput {
+  @include forSecondaryText;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: .08px;
+}
+
+@mixin textButton {
+  @include forButtonText;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+@mixin textButtonSmall {
+  @include forButtonText;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+@mixin textMenu {
+  @include forButtonText;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@mixin textPrimaryBold52 {
+  @include forPrimaryText;
+  font-size: 52px;
+  line-height: 48px;
+}
+
+@mixin textPrimaryBold48 {
+  @include forPrimaryText;
+  font-size: 48px;
+  line-height: 44px;
+}
+
+@mixin textPrimaryMedium34 {
+  @include textSectionTitle;
+  font-weight: 500;
+}
+
+@mixin textPrimaryBold32 {
+  @include forPrimaryText;
+  font-size: 32px;
+  line-height: 37px;
+}
+
+@mixin textPrimaryBold28 {
+  @include forPrimaryText;
+  font-size: 28px;
+  line-height: 33px;
+}
+
+@mixin textPrimaryBold20 {
+  @include forPrimaryText;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+@mixin textPrimaryMedium20 {
+  @include textPrimaryBold20;
+  font-weight: 500;
+}
+
+@mixin textPrimaryBold16 {
+  @include forPrimaryText;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@mixin textPrimaryMedium16 {
+  @include textPrimaryBold16;
+  font-weight: 500;
+}
+
+@mixin textPrimaryBold14 {
+  @include forPrimaryText;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+@mixin textSecondarySemiBold24 {
+  @include forButtonText;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+@mixin textSecondarySemiBold20 {
+  @include forButtonText;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@mixin textSecondaryRegular18 {
+  @include forSecondaryText;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@mixin textSecondarySemiBold16 {
+  @include forButtonText;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+@mixin textSecondarySemiBold14 {
+  @include forButtonText;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+@mixin textSecondaryRegular14 {
+  @include forSecondaryText;
+  font-size: 14px;
+  line-height: 17px;
+}
