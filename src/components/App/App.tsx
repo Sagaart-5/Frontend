@@ -1,10 +1,10 @@
-import MainPage from 'src/pages/MainPage/MainPage'
+import { Outlet } from 'react-router-dom'
 import styles from './App.module.scss'
 
 const App = () => {
   return (
     <div className={styles.app}>
-      <MainPage />
+      <Outlet />
     </div>
   )
 }
