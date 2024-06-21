@@ -1,9 +1,8 @@
-import { useState } from 'react'
-import PopupCostTwo from '../Popups/Popup'
+import { Outlet } from 'react-router-dom'
 import styles from './App.module.scss'
 
 const App = () => {
-  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false)
+    const [isRegistrationOpen, setIsRegistrationOpen] = useState(false)
 
   function handleOverlayClose() {
     setIsRegistrationOpen(false)
@@ -12,9 +11,9 @@ const App = () => {
   function handleRegistrationOpen() {
     setIsRegistrationOpen(true)
   }
-
   return (
     <div className={styles.app}>
+      <Outlet />
       <button onClick={handleRegistrationOpen}>Открыть попап</button>
       {isRegistrationOpen && (
         <PopupCostTwo
