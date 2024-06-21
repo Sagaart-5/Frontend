@@ -12,7 +12,7 @@ interface PopupProps {
   setIsRegistrationOpen: (type: boolean) => void
 }
 
-export default function PopupCostTwo({
+export default function Popup({
   handleOverlayClose,
   setIsRegistrationOpen,
 }: PopupProps) {

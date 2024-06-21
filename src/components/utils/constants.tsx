@@ -8,4 +8,5 @@ export const POPUP_DATA = {
   upload: 'Загрузить фото',
   step: 'Шаг',
   next: 'Далее',
+  open: 'Оценить',
 }
