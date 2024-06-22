@@ -1,0 +1,74 @@
+@import 'src/styles/mixins.scss';
+
+.header {
+  width: 100%;
+  height: 100px;
+  box-sizing: border-box;
+  padding: 6px 60px;
+  color: white;
+  border-bottom: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  @include setBlur;
+}
+
+.headerBgDark {
+  border-color: rgba(white, .8);
+}
+
+.headerBgLight {
+  background-color: rgba(black, .4);
+  border-color: rgba(black, .8);
+}
+
+.logo {
+  width: 88px;
+  height: 88px;
+  background: url('src/assets/images/logo/logo.svg') center / contain no-repeat;
+}
+
+.menu {
+  @include resetList;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.menuLink {
+  @include resetLink;
+  @include textMenu;
+
+  &:hover {
+    color: $colorMenuActive;
+  }
+}
+
+.activeLink {
+  color: $colorMenuActive;
+}
+
+.rightBlock {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.iconLink {
+  padding: 10px;
+
+  & * {
+    stroke: white;
+  }
+
+  &:hover * {
+    stroke-width: 3;
+  }
+
+  &:active {
+    background-color: rgba(white, .1);
+  }
+}

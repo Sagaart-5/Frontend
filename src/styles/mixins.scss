@@ -28,6 +28,11 @@
   margin: 0;
 }
 
+@mixin setBlur {
+  background-color: rgba(white, .1);
+  backdrop-filter: blur(12.5px);
+}
+
 @mixin forPrimaryText {
   font-family: $fontPrimary;
   font-weight: 700;

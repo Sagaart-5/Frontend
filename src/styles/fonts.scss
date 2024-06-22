@@ -3,9 +3,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src:
-    url('src/assets/fonts/Cochin/Cochin-Medium.woff2') format('woff2'),
-    url('src/assets/fonts/Cochin/Cochin-Medium.woff') format('woff');
+  src: url('src/assets/fonts/Cochin/Cochin-Medium.otf') format('opentype');
 }
 
 @font-face {
@@ -13,9 +11,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src:
-    url('src/assets/fonts/Cochin/Cochin-Bold.woff2') format('woff2'),
-    url('src/assets/fonts/Cochin/Cochin-Bold.woff') format('woff');
+  src: url('src/assets/fonts/Cochin/Cochin-Bold.otf') format('opentype');
 }
 
 @font-face {
