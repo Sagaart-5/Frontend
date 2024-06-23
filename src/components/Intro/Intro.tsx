@@ -1,8 +1,7 @@
 import { useState } from 'react'
+import Button from 'src/ui/Button/Button'
+import Popup from '../Popup/Popup'
 import styles from './Intro.module.scss'
-import Popup from '../Popups/Popup'
-import SubmitButton from '../ui/Button/Button'
-import { POPUP_DATA } from '../utils/constants'
 
 const Intro = () => {
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false)
@@ -14,20 +13,13 @@ const Intro = () => {
   function handleRegistrationOpen() {
     setIsRegistrationOpen(true)
   }
+
   return (
-    <section className={styles.intro}>
+    <div className={styles.intro}>
       <div className={styles.overlay}>
         <div className={`${styles.content} ${styles.blur}`}>
-          <h1 className={styles.title}>
-            Раскройте подлинную стоимость Арт объектов!
-          </h1>
-          <SubmitButton
-            title={POPUP_DATA.open}
-            onClick={handleRegistrationOpen}
-            backgroundColor='white'
-            color='#000000'
-            borderColor='#2B2D33'
-          />
+          <h1 className={styles.title}>Раскройте подлинную стоимость Арт объектов!</h1>
+          <Button title='Оценить' type='button' onClick={handleRegistrationOpen} />
         </div>
         <div></div>
         <div></div>
@@ -42,7 +34,7 @@ const Intro = () => {
           handleOverlayClose={handleOverlayClose}
         />
       )}
-    </section>
+    </div>
   )
 }
 
