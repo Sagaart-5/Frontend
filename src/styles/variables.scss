@@ -2,10 +2,15 @@ $fontPrimary: 'Cochin', 'Times New Roman', Georgia, serif;
 $fontSecondary: 'Inter', Helvetica, Arial, sans-serif;
 
 $colorBlack: #020202;
-$colorSuccess: #79F19B;
-$colorWarning: #FFD882;
-$colorError: #FF7A7A;
+$colorGradient: linear-gradient(180deg, rgba(#8F8F8F, .7) 0%, rgba(#292929, .8) 55%, #292929 93.5%);
 
 $colorMenuActive: #D2D1D0;
+$colorDisabled: #D2D1D0;
+
+$colorSuccess: #79F19B;
+$colorWarning: #FFD882;
+$colorError: #482020;
 
 $borderLight: 1px solid rgba(white, .8);
+$borderDark: 1px solid rgba(black, .8);
+$borderButton: 3px solid rgba(#8F8F8F, .7);

@@ -1,0 +1,50 @@
+@import 'src/styles/mixins.scss';
+
+.button {
+  @include resetButton;
+  @include textButton;
+  box-sizing: border-box;
+  padding: 6.5px 41px;
+  border: $borderButton;
+
+  &:hover {
+    font-size: 26px;
+    line-height: 31px;
+  }
+
+  &:active {
+    background-color: transparent;
+    border-color: transparent;
+    color: white;
+  }
+}
+
+.light {
+  background-color: white;
+  color: $colorBlack;
+
+  &:active {
+    color: white;
+  }
+
+  &:disabled {
+    background-color: $colorDisabled;
+    border-color: $colorDisabled;
+    color: white;
+  }
+}
+
+.dark {
+  background-image: $colorGradient;
+  color: white;
+
+  &:active {
+    color: $colorBlack;
+  }
+
+  &:disabled {
+    background-color: white;
+    border-color: $colorDisabled;
+    color: $colorDisabled;
+  }
+}
