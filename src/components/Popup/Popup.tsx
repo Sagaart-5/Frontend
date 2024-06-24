@@ -4,7 +4,7 @@ import ArtForm from 'src/components/ArtForm/ArtForm'
 import RegistrationForm from 'src/components/RegistrationForm/RegistrationForm'
 import BackIcon from 'src/assets/images/icons/back.svg'
 import CloseIcon from 'src/assets/images/icons/close.svg'
-import styles from './Popup.module.scss'
+import styles from 'src/components/Popup/Popup.module.scss'
 
 interface PopupProps {
   handleOverlayClose: () => void
