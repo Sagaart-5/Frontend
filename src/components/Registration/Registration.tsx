@@ -10,11 +10,15 @@ import { Link } from 'react-router-dom'
 // }
 
 const Registration = () => {
+  function handleBack() {
+    window.history.back()
+  }
+
   return (
     <div>
       <NavBar />
       <div className={styles.registration}>
-        <div className={styles.back}>
+        <div className={styles.back} onClick={handleBack}>
           <Back />
         </div>
         <div className={styles.blur}>

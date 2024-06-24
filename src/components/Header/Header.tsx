@@ -58,7 +58,7 @@ const Header = () => {
         <Link to='/' className={styles.iconLink}>
           <CartIcon />
         </Link>
-        <Link to='/' className={styles.iconLink}>
+        <Link to='/profile' className={styles.iconLink}>
           <ProfileIcon />
         </Link>
       </div>

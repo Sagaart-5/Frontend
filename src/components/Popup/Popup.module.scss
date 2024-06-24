@@ -23,32 +23,8 @@
   box-sizing: border-box;
   padding: 20px 20px 80px;
   @include setBlur;
-
-  &__input {
-    padding: 16px 24px;
-    width: 100%;
-    border: 1px solid #020202;
-    box-sizing: border-box;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    color: rgba(43, 45, 51, 0.7);
-  }
-
-  &__inputContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 344px;
-    margin: 0 auto;
-  }
-
-  &__containerStep {
-    margin: 0 auto;
-    display: flex;
-    gap: 12px;
-  }
 }
+
 
 .controlls {
   width: 100%;
@@ -58,6 +34,7 @@
 }
 
 .icon {
+  cursor: pointer;
 }
 
 .content {

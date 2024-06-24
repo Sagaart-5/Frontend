@@ -10,11 +10,15 @@ import { Link } from 'react-router-dom'
 // }
 
 const Login = () => {
+  function handleBack() {
+    window.history.back()
+  }
+
   return (
     <div>
       <NavBar />
       <div className={styles.registration}>
-        <div className={styles.back}>
+        <div className={styles.back}  onClick={handleBack}>
           <Back />
         </div>
         <div className={styles.blur}>
@@ -22,7 +26,7 @@ const Login = () => {
             <div className={styles.buttons}>
               <button className={styles.button}>
                 <Link className={styles.link} to='/signup'>
-                  Регистрация{' '}
+                  Регистрация
                 </Link>
               </button>
               <button className={styles.button}>Вход</button>
