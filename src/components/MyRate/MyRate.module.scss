@@ -1,0 +1,39 @@
+@import 'src/styles/mixins.scss';
+
+.item {
+  width: 873px;
+  border-bottom: $borderDark;
+  padding: 48px 0 0 135px;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 20px;
+}
+
+.title {
+  @include resetText;
+}
+
+.button {
+  background-color: $bgGrey;
+  padding: 4px 8px;
+}
+
+.status {
+  @include resetText;
+}
+
+.dateContainer {
+  display: flex;
+  margin-bottom: 32px;
+  gap: 12px;
+}
+
+.date {
+  @include resetText;
+  display: flex;
+  align-items: center;
+}

@@ -1,37 +1,38 @@
 import styles from 'src/components/ProfileMenu/ProfileMenu.module.scss'
-import { Link } from 'react-router-dom'
 
-// interface SectionProps {
-//   sectionId: string
-//   children: ReactNode
-// }
+interface ProfileMenuProps {
+  activeItem: string | null
+  handleMenuItemClick: (type: string) => void
+}
 
-const ProfileMenu = () => {
+const ProfileMenu = ({ activeItem, handleMenuItemClick }: ProfileMenuProps) => {
   return (
-    <nav>
-      <ul className={styles.menu}>
-        <li className={styles.item}>
-          <Link to='/' className={styles.link}>
-            Оценка арт объекта
-          </Link>
-        </li>
-        <li className={styles.item}>
-          <Link to='/' className={styles.link}>
-            Мои оценки
-          </Link>
-        </li>
-        <li className={styles.item}>
-          <Link to='/' className={styles.link}>
-            Моя подписка
-          </Link>
-        </li>
-        <li className={styles.item}>
-          <Link to='/' className={styles.link}>
-            Тарифы
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <ul className={styles.menu}>
+      <li
+        className={`${styles.item} ${activeItem === 'artUpload' ? styles.isActive : ''}`}
+        onClick={() => handleMenuItemClick('artUpload')}
+      >
+        Оценка арт объекта
+      </li>
+      <li
+        className={`${styles.item} ${activeItem === 'myRate' ? styles.isActive : ''}`}
+        onClick={() => handleMenuItemClick('myRate')}
+      >
+        Мои оценки
+      </li>
+      <li
+        className={`${styles.item} ${activeItem === 'subscription' ? styles.isActive : ''}`}
+        onClick={() => handleMenuItemClick('subscription')}
+      >
+        Моя подписка
+      </li>
+      <li
+        className={`${styles.item} ${activeItem === 'tariffs' ? styles.isActive : ''}`}
+        onClick={() => handleMenuItemClick('tariffs')}
+      >
+        Тарифы
+      </li>
+    </ul>
   )
 }
 

@@ -2,9 +2,12 @@
 @import 'src/styles/variables.scss';
 
 .wrapper {
+  width: 1440px;
+  box-sizing: border-box;
   display: flex;
   position: relative;
   background-color: $colorBeige;
+  padding: 0 60px 0 60px;
 }
 
 .background {
@@ -18,9 +21,8 @@
 }
 
 .container {
-  height: 100vh;
-  padding: 48px 60px;
   box-sizing: border-box;
+  width: 312px;
 }
 
 .image {
