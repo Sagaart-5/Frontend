@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 const NavBar = () => {
   const registrationRoute = location.pathname === '/signup'
   const loginRoute = location.pathname === '/signin'
+  const loginProfile = location.pathname === '/profile'
 
   return (
     <div className={styles.navBar}>
@@ -18,6 +19,7 @@ const NavBar = () => {
         <p className={styles.text}>
           {registrationRoute && 'Регистрация'}
           {loginRoute && 'Вход'}
+          {loginProfile && 'Личный кабинет'}
         </p>
       </div>
     </div>

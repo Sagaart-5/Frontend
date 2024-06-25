@@ -14,7 +14,7 @@
 .wrapper {
   max-width: 650px;
   margin: 120px auto;
-  background: rgba(white, 0.2) url('src/assets/images/bg/authorization.jpg') top center / cover
+  background: rgba(2, 2, 2, 0.15) url('src/assets/images/bg/authorization.jpg') top center / cover
     no-repeat;
 }
 
@@ -24,7 +24,6 @@
   padding: 20px 20px 80px;
   @include setBlur;
 }
-
 
 .controlls {
   width: 100%;

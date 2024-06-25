@@ -41,7 +41,6 @@
 
 .button {
   @include resetText;
-  @include textPrimaryBold14;
   @include textSecondaryRegular18;
   display: block;
   padding: 13px 12px;
