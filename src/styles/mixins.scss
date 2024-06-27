@@ -138,10 +138,24 @@
   line-height: 16px;
 }
 
+@mixin textSecondarySemiBold48 {
+  @include forButtonText;
+  font-size: 48px;
+  line-height: 68px;
+  letter-spacing: -1.28px;
+}
+
 @mixin textSecondarySemiBold24 {
   @include forButtonText;
   font-size: 24px;
   line-height: 29px;
+}
+
+@mixin textSecondarySemiBold22 {
+  @include forButtonText;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: -.251px;
 }
 
 @mixin textSecondarySemiBold20 {
