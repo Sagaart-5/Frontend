@@ -173,13 +173,15 @@
 @mixin textSecondarySemiBold16 {
   @include forButtonText;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 24px;
+  letter-spacing: .64px;
 }
 
 @mixin textSecondarySemiBold14 {
   @include forButtonText;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 21px;
+  letter-spacing: .56px;
 }
 
 @mixin textSecondaryRegular14 {
