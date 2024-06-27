@@ -1,7 +1,86 @@
+@import 'src/styles/mixins.scss';
+
 .events {
   width: 100%;
-  height: 100vh;
+  box-sizing: border-box;
+  padding: 120px 0 120px 60px;
+  background-color: $colorBeige;
+}
+
+.title {
+  @include resetText;
+  @include textSectionTitle;
+  margin-bottom: 38px;
+}
+
+.list {
+  @include resetList;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  gap: 36px;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.item {
+  &:nth-of-type(odd) {
+    .picture {
+      // height: 228px;
+      height: 16.5vw;
+    }
+  }
+
+  &:nth-of-type(even) {
+    .picture {
+      // height: 288px;
+      height: 20.87vw;
+    }
+
+    &:last-of-type {
+      margin-right: 60px;
+    }
+  }
+
+  &:hover {
+    .pic {
+      transform: scale(1.25);
+    }
+  }
+}
+
+.link {
+  @include resetLink;
+}
+
+.picture {
+  // width: 232px;
+  width: 16.8vw;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.pic {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform .6s ease;
+  cursor: pointer;
+}
+
+.name {
+  @include resetText;
+  @include textSecondarySemiBold14;
+  margin-bottom: 8px;
+}
+
+.date {
+  @include resetText;
+  @include textSecondaryRegular12;
 }

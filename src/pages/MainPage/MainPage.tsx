@@ -1,3 +1,6 @@
+import { useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from 'src/services/hooks'
+import { fetchEventsData, selectEvents } from 'src/services/slices/eventsSlice'
 import Section from 'src/components/Section/Section'
 import Intro from 'src/components/Intro/Intro'
 import Events from 'src/components/Events/Events'
@@ -7,6 +10,14 @@ import About from 'src/components/About/About'
 import styles from './MainPage.module.scss'
 
 const MainPage = () => {
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(fetchEventsData())
+  }, [dispatch])
+
+  const { events } = useAppSelector(selectEvents)
+
   const sections = [
     {
       id: 'intro',
@@ -14,7 +25,7 @@ const MainPage = () => {
     },
     {
       id: 'events',
-      component: <Events />,
+      component: <Events events={events} />,
     },
     {
       id: 'appraisal',
