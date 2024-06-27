@@ -1,15 +1,19 @@
 import styles from 'src/components/Tariff/Tariff.module.scss'
+import TariffItems from 'src/components/TariffItems/TariffItems'
 
 // interface ArtUploadPageProps {
 //   next: () => void
 // }
 
 const Tariff = () =>
-  // { next }: ArtUploadPageProps
   {
     return (
       <div className={styles.container}>
-        Tariff
+        <div style={{ display: 'flex', gap: '20px'}}>
+        <TariffItems />
+        <TariffItems />
+        </div>
+        <TariffItems width='100%'/>
       </div>
     )
   }

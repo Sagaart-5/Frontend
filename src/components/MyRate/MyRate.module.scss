@@ -1,9 +1,13 @@
 @import 'src/styles/mixins.scss';
 
+.myRate {
+  width: 100%;
+  padding: 0 0 0 135px;
+}
+
 .item {
   width: 873px;
   border-bottom: $borderDark;
-  padding: 48px 0 0 135px;
   box-sizing: border-box;
 }
 
@@ -28,7 +32,7 @@
 
 .dateContainer {
   display: flex;
-  margin-bottom: 32px;
+  padding-bottom: 32px;
   gap: 12px;
 }
 

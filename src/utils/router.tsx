@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 import App from 'src/components/App/App'
+import Catalog from 'src/components/Catalog/Catalog'
 import Login from 'src/components/Login/Login'
 import Profile from 'src/components/Profile/Profile'
 import Registration from 'src/components/Registration/Registration'
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: '/profile',
         element: <Profile />,
+      },
+      {
+        path: '/catalog',
+        element: <Catalog />,
       },
     ],
   },

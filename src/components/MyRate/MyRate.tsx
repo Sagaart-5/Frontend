@@ -7,7 +7,7 @@ import Picker from 'src/assets/images/icons/calendar.svg'
 
 const MyRate = () => {
   return (
-    <div>
+    <div className={styles.myRate}>
       <div className={styles.item}>
         <div className={styles.wrapper}>
           <p className={styles.title}>Запрос №1</p>
@@ -33,9 +33,6 @@ const MyRate = () => {
           <p className={styles.date}>01.01.2024</p>
         </div>
       </div>
-
-
-
 
     </div>
   )
