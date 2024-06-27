@@ -8,14 +8,17 @@
   border: $borderButton;
 
   &:hover {
-    font-size: 26px;
-    line-height: 31px;
+    @include setBlur;
   }
 
   &:active {
-    background-color: transparent;
-    border-color: transparent;
-    color: white;
+    padding: 8.5px 43px;
+    border-width: 1px;
+  }
+
+  &:disabled {
+    border-color: $colorDisabled;
+    color: $colorDisabled;
   }
 }
 
@@ -23,14 +26,18 @@
   background-color: white;
   color: $colorBlack;
 
-  &:active {
+  &:hover {
     color: white;
   }
 
+  &:active {
+    border-color: $colorLightGray;
+    color: $colorLightGray;
+  }
+
   &:disabled {
-    background-color: $colorDisabled;
     border-color: $colorDisabled;
-    color: white;
+    color: $colorDisabled;
   }
 }
 
@@ -38,13 +45,18 @@
   background-image: $colorGradient;
   color: white;
 
-  &:active {
+  &:hover {
     color: $colorBlack;
   }
 
+  &:active {
+    background-color: $colorDarkGray;
+    border-color: $colorBlack;
+  }
+
   &:disabled {
-    background-color: white;
+    background-color: $colorDisabled;
     border-color: $colorDisabled;
-    color: $colorDisabled;
+    color: white;
   }
 }
