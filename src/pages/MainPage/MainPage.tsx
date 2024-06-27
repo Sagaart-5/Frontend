@@ -7,6 +7,7 @@ import Events from 'src/components/Events/Events'
 import Appraisal from 'src/components/Appraisal/Appraisal'
 import Marketplace from 'src/components/Marketplace/Marketplace'
 import About from 'src/components/About/About'
+import Footer from 'src/components/Footer/Footer'
 import styles from './MainPage.module.scss'
 
 const MainPage = () => {
@@ -42,13 +43,16 @@ const MainPage = () => {
   ]
 
   return (
-    <main className={styles.main}>
-      {sections.map((section, index) => (
-        <Section sectionId={section.id} key={index}>
-          {section.component}
-        </Section>
-      ))}
-    </main>
+    <>
+      <main className={styles.main}>
+        {sections.map((section, index) => (
+          <Section sectionId={section.id} key={index}>
+            {section.component}
+          </Section>
+        ))}
+      </main>
+      <Footer />
+    </>
   )
 }
 
