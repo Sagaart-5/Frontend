@@ -1,88 +1,71 @@
-import Box from '@mui/material/Box'
-import InputLabel from '@mui/material/InputLabel'
-import FormControl from '@mui/material/FormControl'
-import Select from '@mui/material/Select' // , { SelectChangeEvent }
-// import { FILTER_DATA } from './../../utils/constants';
-// import { useState } from 'react';
-// import { MenuItem } from '@mui/material';
+import { useRef, useState } from 'react'
+import SimpleBar from 'simplebar-react'
+import cn from 'classnames/bind'
+import useOutsideClick from 'src/hooks/useOutsideClick'
+import Arrow from 'src/assets/images/icons/down.svg'
+import 'src/ui/Select/SimpleBar.scss'
+import styles from 'src/ui/Select/Select.module.scss'
 
-export interface SelectProps {
-  setCityValue?: (value: string) => void
-  cityValue?: string
-  // cities: any;
+const cx = cn.bind(styles)
+
+export interface ISelect {
+  text: string
+  value: string
+  setValue: (value: string) => void
 }
+const options = [
+  'дерево',
+  'железо',
+  'люминий',
+  'стекло'
+]
 
-export default function BasicSelect() {
-  //   {
-  //   // cities,
-  //   // cityValue,
-  //   // setCityValue,
-  // }: SelectProps
-  // const [isOpenSelect, setIsOpenSelect] = useState(false);
+export default function Select({ text, setValue, value }: ISelect) {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const ref = useRef(null)
 
-  // const handleChange = (evt: SelectChangeEvent<string>) => {
-  //   const value = evt.target.value;
-  //   if (setCityValue) {
-  //     setCityValue(value);
-  //   }
-  // };
+  function toggleOpen() {
+    setIsOpen(prev => !prev)
+  }
 
-  // const toggleSelect = () => {
-  //   setIsOpenSelect(!isOpenSelect);
-  // };
+  useOutsideClick(ref, toggleOpen)
 
   return (
-    <Box sx={{ minWidth: 120, width: '100%' }}>
-      <FormControl
-        fullWidth
-        sx={{
-          backgroundColor: 'white',
-          '& .css-bpeome-MuiSvgIcon-root-MuiSelect-icon': {
-            color: 'white',
-          },
-          '& .MuiOutlinedInput-notchedOutline': {
-            color: 'white',
-          },
-          '& label.Mui-focused': {
-            color: '#6750A4',
-          },
-          '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-              borderColor: '#CAC4D0',
-            },
-            '&:hover fieldset': {
-              borderColor: '#E8DEF8',
-            },
-            '&.Mui-focused fieldset': {
-              borderColor: '#6750A4',
-            },
-          },
-        }}
-      >
-        <InputLabel id='demo-simple-select-label'>
-          {/* {FILTER_DATA.select} */}
-          силект
-        </InputLabel>
-        <Select
-          labelId='demo-simple-select-label'
-          id='demo-simple-select'
-          // value={cityValue || ''}
-          label='Город'
-          // onChange={handleChange}
-          // onClick={toggleSelect}
-          // open={isOpenSelect}
-          // onClose={() => setIsOpenSelect(false)}
-          sx={{
-            borderRadius: '12px',
-          }}
+    <div
+      ref={isOpen ? ref : null}
+      className={cx('select', {
+        'select--open': isOpen,
+      })}
+      onClick={toggleOpen}
+      aria-hidden='true'
+    >
+      {!value && <span className={cx('select__title')}>{text}</span>}
+      <span className={cx('select__title')}>{value}</span>
+      <div className={cx('select__arrow')} onClick={toggleOpen}>
+        <Arrow />
+      </div>
+      {isOpen && options && (
+        <ul
+          className={cx('select__optionContainer', {
+            'select__optionContainer--open': isOpen,
+          })}
         >
-          {/* {cities.map((city, index) => (
-            <MenuItem key={index} value={city.city_slug}>
-              {city.city_slug}
-            </MenuItem>
-          ))} */}
-        </Select>
-      </FormControl>
-    </Box>
+          <SimpleBar style={{ maxHeight: 'inherit' }}>
+            {options.map((option, index) => (
+              <li
+                onClick={() => {
+                  setValue(option)
+                }}
+                className={styles.select__option}
+                key={index}
+                aria-hidden='true'
+              >
+                <p className={cx('select__optionName')}>{option}</p>
+              </li>
+            ))}
+          </SimpleBar>
+        </ul>
+      )}
+    </div>
   )
 }

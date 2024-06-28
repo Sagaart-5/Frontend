@@ -4,7 +4,7 @@ import ArtForm from 'src/components/ArtForm/ArtForm'
 import RegistrationForm from 'src/components/RegistrationForm/RegistrationForm'
 import BackIcon from 'src/assets/images/icons/back.svg'
 import CloseIcon from 'src/assets/images/icons/close.svg'
-import styles from './Popup.module.scss'
+import styles from 'src/components/Popup/Popup.module.scss'
 
 interface PopupProps {
   handleOverlayClose: () => void
@@ -73,7 +73,11 @@ const Popup: FC<PopupProps> = ({ handleOverlayClose, setIsRegistrationOpen }) =>
             </p>
             {currentStep === 1 && <ArtUpload next={handleNextButtonClick} />}
             {currentStep === 2 && <ArtForm next={handleNextButtonClick} />}
-            {currentStep === 3 && <RegistrationForm />}
+            {currentStep === 3 && (
+              <RegistrationForm
+                text={'Создайте аккаунт, чтобы мы могли поделиться с Вами результатом оценки'}
+              />
+            )}
           </div>
         </div>
       </div>

@@ -1,20 +1,36 @@
 $fontPrimary: 'Cochin', 'Times New Roman', Georgia, serif;
 $fontSecondary: 'Inter', Helvetica, Arial, sans-serif;
 
-$colorBeige: #FFF9F2;
-$colorLightGray: #929292;
-$colorGray: #65635F;
-$colorDarkGray: #292929;
 $colorBlack: #020202;
-$colorGradient: linear-gradient(180deg, rgba(#8F8F8F, .7) 0%, rgba(#292929, .8) 55%, #292929 93.5%);
+$colorWhite: #FFFFFF;
+$colorBeige: #FFF9F2;
+$colorGray: #65635F;
+$colorLightGray: #929292;
+$colorDarkGray: #292929;
+$colorGradient: linear-gradient(
+  180deg,
+  rgba(#8f8f8f, 0.7) 0%,
+  rgba(#292929, 0.8) 55%,
+  #292929 93.5%
+);
 
-$colorMenuActive: #D2D1D0;
-$colorDisabled: #D2D1D0;
+$colorGradientButton: linear-gradient(to right, rgba(143, 143, 143, 0.7), rgba(41, 41, 41, 0.8), rgba(41, 41, 41, 1)) 1;
 
-$colorSuccess: #79F19B;
-$colorWarning: #FFD882;
+$colorMenuActive: #d2d1d0;
+$colorDisabled: #d2d1d0;
+
+$colorSuccess: #79f19b;
+$colorWarning: #ffd882;
 $colorError: #482020;
 
-$borderLight: 1px solid rgba(white, .8);
-$borderDark: 1px solid rgba(black, .8);
-$borderButton: 3px solid rgba(#8F8F8F, .7);
+$borderLight: 1px solid rgba(white, 0.8);
+$borderDark: 1px solid rgba(black, 0.8);
+$borderDark: 1px solid rgba(2, 2, 2, 1);
+$borderButton: 3px solid rgba(#8f8f8f, 0.7);
+
+$lightWhite: rgba(255, 255, 255, 0.1);
+$bgWhite: rgba(255, 255, 255, 0.2);
+$bgGrey: rgba(244, 244, 244, 1);
+
+$shadow: 0px 8px 16px 3px rgba(0, 0, 0, 0.08);
+$active: #ffed91;

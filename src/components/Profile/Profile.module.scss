@@ -1,0 +1,32 @@
+@import 'src/styles/mixins.scss';
+@import 'src/styles/variables.scss';
+
+.wrapper {
+  width: 1440px;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  background-color: $colorBeige;
+  padding: 0 60px 0 60px;
+}
+
+.background {
+  position: absolute;
+  bottom: -148px;
+  left: 15px;
+  height: 862px;
+  width: 1411px;
+  background-image: url('./../../assets/images/icons/arc.svg');
+  background-repeat: no-repeat;
+}
+
+.container {
+  box-sizing: border-box;
+  width: 312px;
+}
+
+.image {
+  margin: 86px 0 0;
+  transform: rotate(6deg);
+}

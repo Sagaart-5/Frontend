@@ -1,0 +1,26 @@
+@import 'src/styles/mixins.scss';
+
+.subscription {
+  width: 100%;
+  padding: 0 0 0 135px;
+}
+
+.item {
+  width: 873px;
+  border-bottom: $borderDark;
+  box-sizing: border-box;
+}
+
+.title {
+  @include resetText;
+  padding: 32px 0 20px;
+}
+
+.button {
+  padding: 3.5px 26.5px;
+  margin: 0 0 32px;
+  border: 1.8px solid;
+  border-image: $colorGradientButton;
+  background-color: $lightWhite;
+}
+

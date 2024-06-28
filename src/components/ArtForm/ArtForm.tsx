@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import Select from 'src/ui/Select/Select'
 import Button from 'src/ui/Button/Button'
 import styles from './ArtForm.module.scss'
@@ -8,6 +8,10 @@ interface ArtFormProps {
 }
 
 const ArtForm: FC<ArtFormProps> = ({ next }) => {
+  const [materialValue, setMaterialValue] = useState('')
+  const [technologyValue, setTechnologyValue] = useState('')
+  const [sizeValue, setSizeValue] = useState('')
+
   return (
     <div className={styles.container}>
       <p className={styles.text}>Немного расскажите об Арт-объекте</p>
@@ -19,10 +23,10 @@ const ArtForm: FC<ArtFormProps> = ({ next }) => {
           required={true}
         />
         <input className={styles.input} type='text' placeholder='Название' required={true} />
-        <Select />
-        <Select />
+        <Select text={'Материал'} value={materialValue} setValue={setMaterialValue} />
+        <Select text={'Техника исполнения'} value={technologyValue} setValue={setTechnologyValue} />
         <input className={styles.input} type='date' placeholder='Дата создания' required={true} />
-        <Select />
+        <Select text={'Размер'} value={sizeValue} setValue={setSizeValue} />
       </form>
       <Button title='Далее' type='button' onClick={next} />
     </div>

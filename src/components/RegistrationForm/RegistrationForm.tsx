@@ -1,11 +1,15 @@
 import Button from 'src/ui/Button/Button'
-import styles from './RegistrationForm.module.scss'
+import styles from 'src/components/RegistrationForm/RegistrationForm.module.scss'
 
-export default function PopupRegistrationForm() {
+interface PopupRegistrationFormProps {
+  text?: string
+}
+
+export default function PopupRegistrationForm({ text }: PopupRegistrationFormProps) {
   return (
     <div className={styles.container}>
       <p className={styles.text}>
-        Создайте аккаунт, чтобы мы могли поделиться с Вами результатом оценки
+        {text}
       </p>
       <form className={styles.form}>
         <input className={styles.input} type='text' placeholder='Имя' required={true} />

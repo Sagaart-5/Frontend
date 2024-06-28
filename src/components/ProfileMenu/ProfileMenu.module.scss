@@ -1,0 +1,30 @@
+@import 'src/styles/mixins.scss';
+@import 'src/styles/variables.scss';
+
+.menu {
+  @include resetList;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  gap: 12px;
+  position: relative;
+  z-index: 4;
+}
+
+.item {
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.link {
+  @include resetLink;
+  @include textMenu;
+
+  &:hover {
+    color: $colorMenuActive;
+  }
+}
+
+.isActive {
+  background-color: $active;
+}
