@@ -1,5 +1,5 @@
 import styles from 'src/components/Catalog/Catalog.module.scss'
-import Filter from 'src/ui/Filter/Filter'
+import Filter from 'src/components/Filter/Filter'
 import NavBar from '../NavBar/NavBar'
 
 // interface ArtUploadPageProps {

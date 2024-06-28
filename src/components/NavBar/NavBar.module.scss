@@ -18,12 +18,15 @@
 .text {
   @include resetText;
   @include textPrimaryBold14;
-
-  &:first-child {
-    cursor: pointer;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center
 }
 
 .link {
   @include resetLink;
+}
+
+.image {
+  padding: 6px 9px;
 }
