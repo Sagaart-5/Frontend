@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from 'src/services/hooks'
 import { fetchEventsData, selectEvents } from 'src/services/slices/eventsSlice'
+import { fetchArtsData, selectArts } from 'src/services/slices/artsSlice'
 import Section from 'src/components/Section/Section'
 import Intro from 'src/components/Intro/Intro'
 import Events from 'src/components/Events/Events'
@@ -15,9 +16,11 @@ const MainPage = () => {
 
   useEffect(() => {
     dispatch(fetchEventsData())
+    dispatch(fetchArtsData())
   }, [dispatch])
 
   const { events } = useAppSelector(selectEvents)
+  const { arts } = useAppSelector(selectArts)
 
   const sections = [
     {
@@ -34,7 +37,7 @@ const MainPage = () => {
     },
     {
       id: 'marketplace',
-      component: <Marketplace />,
+      component: <Marketplace arts={arts} />,
     },
     {
       id: 'about',
