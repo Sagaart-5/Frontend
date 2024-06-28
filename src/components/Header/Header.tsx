@@ -16,8 +16,12 @@ const Header = () => {
 
   const setHeaderClass = () => {
     const path = location.pathname + location.hash
-    const isSectionDark = path === '/' || path === '/#intro' || path === '/#appraisal'
-    return `${styles.header} ${isSectionDark ? styles.headerBgDark : styles.headerBgLight}`
+    const isSectionDark =
+      path === '/' || path === '/#intro' || path === '/#appraisal'
+    // const isSectionDark = path === '/' || path === '/#intro'
+    return `${styles.header} ${
+      isSectionDark ? styles.headerBgDark : styles.headerBgLight
+    }`
   }
 
   const setLinkClass = (path: string) => {
@@ -38,12 +42,18 @@ const Header = () => {
             </HashLink>
           </li>
           <li>
-            <HashLink to={path.appraisal} className={setLinkClass(path.appraisal)}>
+            <HashLink
+              to={path.appraisal}
+              className={setLinkClass(path.appraisal)}
+            >
               Оценка
             </HashLink>
           </li>
           <li>
-            <HashLink to={path.marketplace} className={setLinkClass(path.marketplace)}>
+            <HashLink
+              to={path.marketplace}
+              className={setLinkClass(path.marketplace)}
+            >
               Маркетплейс
             </HashLink>
           </li>

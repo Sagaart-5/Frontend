@@ -1,0 +1,72 @@
+@import 'src/styles/mixins.scss';
+
+.link {
+  @include resetLink;
+  display: block;
+}
+
+.art {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: $colorBlack;
+
+  &:hover {
+    .pic {
+      transform: scale(1.25);
+    }
+  }
+}
+
+.picture {
+  width: 238px;
+  height: 254px;
+  overflow: hidden;
+}
+
+.pic {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform .6s ease;
+  cursor: pointer;
+}
+
+.title {
+  @include resetText;
+  @include textSecondarySemiBold18;
+}
+
+.author {
+  @include resetText;
+  @include textPrimaryMedium18;
+  color: $colorGray;
+}
+
+.info {}
+
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart {
+  width: 20px;
+  height: 20px;
+  padding: 6px;
+
+  & * {
+    stroke: $colorBlack;
+  }
+
+  &:hover * {
+    stroke-width: 3;
+  }
+
+  &:active {
+    background-color: rgba(white, .1);
+  }
+}

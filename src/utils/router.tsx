@@ -5,6 +5,8 @@ import Login from 'src/components/Login/Login'
 import Profile from 'src/components/Profile/Profile'
 import Registration from 'src/components/Registration/Registration'
 import MainPage from 'src/pages/MainPage/MainPage'
+import MarketplacePage from 'src/pages/MarketplacePage/MarketplacePage'
+import ArtPage from 'src/pages/ArtPage/ArtPage'
 
 export const router = createBrowserRouter([
   {
@@ -16,20 +18,29 @@ export const router = createBrowserRouter([
         element: <MainPage />,
       },
       {
-        path: '/signup',
+        path: 'signup',
         element: <Registration />,
       },
       {
-        path: '/signin',
+        path: 'signin',
         element: <Login />,
       },
       {
-        path: '/profile',
+        path: 'profile',
         element: <Profile />,
       },
       {
-        path: '/catalog',
+        path: 'marketplace',
+        element: <MarketplacePage />,
+      },
+      {
+        path: 'catalog',
         element: <Catalog />,
+      },
+      {
+        path: 'art/:id',
+        element: <ArtPage />,
+
       },
     ],
   },
