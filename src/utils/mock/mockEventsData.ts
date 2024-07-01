@@ -4,7 +4,7 @@ export const mockEventsData: Array<EventType> = [
   {
     id: 1,
     title: 'Лекция «Город чудный, город древний...»: Москва в картинах Аполлинария Васнецова и других художников',
-    image: 'src/assets/images/mock/events/event1.jpg',
+    image: './src/assets/images/mock/events/event1.jpg',
     date: '29 июня 2024 12:00',
     link: 'https://www.tretyakovgallery.ru/events/o/lektsiya-gorod-chudnyy-gorod-drevniy-moskva-v-kartinakh-apollinariya-vasnetsova-i-drugikh-khudozhnik/'
   },
