@@ -1,5 +1,5 @@
-// import { Outlet } from 'react-router-dom'
-// import Header from 'src/components/Header/Header'
+import { Outlet } from 'react-router-dom'
+import Header from 'src/components/Header/Header'
 import styles from './App.module.scss'
 import { useEffect, useState } from 'react'
 import * as Api from 'src/services/utils'
@@ -21,8 +21,8 @@ const App = () => {
 
   return (
     <div className={styles.app}>
-      {/* <Header />
-      <Outlet /> */}
+      <Header />
+      <Outlet />
     </div>
   )
 }
