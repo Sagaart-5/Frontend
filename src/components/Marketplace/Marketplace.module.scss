@@ -1,11 +1,10 @@
 @import 'src/styles/mixins.scss';
 
-.marketplace {
-  width: 100%;
+.container {
+  max-width: 1440px;
   box-sizing: border-box;
-  padding: 120px 60px 380px;
+  padding: 120px 60px 220px;
   margin: 0 auto;
-  background-color: $colorBeige;
 }
 
 .headline {
@@ -31,6 +30,6 @@
   grid-template-columns: repeat(auto-fit, 238px);
   grid-template-rows: min-content;
   grid-auto-rows: min-content;
-  gap: 166px 32px;
+  gap: 64px 32px;
   justify-content: center;
 }

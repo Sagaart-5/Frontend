@@ -5,10 +5,20 @@
   display: block;
 }
 
+.hover {
+  &:hover {
+    height: 425px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 20px 20px 12px;
+  }
+}
+
 .art {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   color: $colorBlack;
 
   &:hover {
@@ -19,8 +29,8 @@
 }
 
 .picture {
-  width: 238px;
-  height: 254px;
+  width: 203px;
+  height: 216px;
   overflow: hidden;
 }
 
@@ -36,29 +46,37 @@
 
 .title {
   @include resetText;
-  @include textSecondarySemiBold18;
+  @include textPrimaryBold16;
 }
 
-.author {
+.author, .info {
   @include resetText;
-  @include textPrimaryMedium18;
+  @include textPrimaryMedium16;
   color: $colorGray;
 }
 
-.info {}
+.info {
 
-.price {
+}
+
+.priceBlock {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.price {
+  @include resetText;
+  @include textSecondarySemiBold16;
+}
+
 .cart {
-  width: 20px;
-  height: 20px;
   padding: 6px;
 
   & * {
+    width: 20px;
+    height: 20px;
+    display: block;
     stroke: $colorBlack;
   }
 

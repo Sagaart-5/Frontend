@@ -7,10 +7,6 @@
   padding: 6.5px 41px;
   border: $borderButton;
 
-  &:hover {
-    @include setBlur;
-  }
-
   &:active {
     padding: 8.5px 43px;
     border-width: 1px;
@@ -18,7 +14,6 @@
 
   &:disabled {
     border-color: $colorDisabled;
-    color: $colorDisabled;
   }
 }
 
@@ -27,16 +22,17 @@
   color: $colorBlack;
 
   &:hover {
+    @include setBlur;
     color: white;
   }
 
   &:active {
+    @include setBlur;
     border-color: $colorLightGray;
     color: $colorLightGray;
   }
 
   &:disabled {
-    border-color: $colorDisabled;
     color: $colorDisabled;
   }
 }
@@ -46,17 +42,17 @@
   color: white;
 
   &:hover {
-    color: $colorBlack;
+    background-color: rgba($colorBlack, .5);
   }
 
   &:active {
-    background-color: $colorDarkGray;
-    border-color: $colorBlack;
+    background-color: $colorGray;
+    border-color: $colorLightGray;
+    color: $colorLightGray;
   }
 
   &:disabled {
     background-color: $colorDisabled;
-    border-color: $colorDisabled;
     color: white;
   }
 }

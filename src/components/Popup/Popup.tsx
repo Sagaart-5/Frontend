@@ -11,7 +11,10 @@ interface PopupProps {
   setIsRegistrationOpen: (type: boolean) => void
 }
 
-const Popup: FC<PopupProps> = ({ handleOverlayClose, setIsRegistrationOpen }) => {
+const Popup: FC<PopupProps> = ({
+  handleOverlayClose,
+  setIsRegistrationOpen,
+}) => {
   const modalRef = useRef<HTMLDivElement>(null)
 
   const [currentStep, setCurrentStep] = useState(1)
@@ -38,12 +41,13 @@ const Popup: FC<PopupProps> = ({ handleOverlayClose, setIsRegistrationOpen }) =>
 
   const popupClose = () => {
     setIsRegistrationOpen(false)
+    document.body.style.overflow = 'unset'
   }
 
   useEffect(() => {
     if (modalRef.current) {
       const modal = modalRef.current
-      modal.style.display = 'block'
+      modal.style.display = 'flex'
       modal.style.opacity = '0'
       modal.animate([{ opacity: 0 }, { opacity: 1 }], {
         duration: 400,
@@ -55,8 +59,8 @@ const Popup: FC<PopupProps> = ({ handleOverlayClose, setIsRegistrationOpen }) =>
 
   return (
     <div className={styles.overlay} onClick={handleOverlayClose} ref={modalRef}>
-      <div className={styles.wrapper}>
-        <div className={styles.popup} onClick={handlePopupClick}>
+      <div className={styles.popup} onClick={handlePopupClick}>
+        <div className={styles.container}>
           <div className={styles.controlls}>
             <div onClick={handleBackButtonClick} className={styles.icon}>
               <BackIcon />
@@ -75,7 +79,9 @@ const Popup: FC<PopupProps> = ({ handleOverlayClose, setIsRegistrationOpen }) =>
             {currentStep === 2 && <ArtForm next={handleNextButtonClick} />}
             {currentStep === 3 && (
               <RegistrationForm
-                text={'Создайте аккаунт, чтобы мы могли поделиться с Вами результатом оценки'}
+                text={
+                  'Создайте аккаунт, чтобы мы могли поделиться с Вами результатом оценки'
+                }
               />
             )}
           </div>
