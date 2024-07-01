@@ -47,7 +47,7 @@ export default function Select({ text, setValue, value }: ISelect) {
       {isOpen && options && (
         <ul
           className={cx('select__optionContainer', {
-            'select__optionContainer--open': isOpen,
+            'select__optionContainer--open': isOpen
           })}
         >
           <SimpleBar style={{ maxHeight: 'inherit' }}>

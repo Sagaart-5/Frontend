@@ -1,8 +1,9 @@
 import styles from 'src/components/Registration/Registration.module.scss'
-import NavBar from 'src/components/NavBar/NavBar'
 import RegistrationForm from 'src/components/RegistrationForm/RegistrationForm'
 import Back from 'src/assets/images/icons/back.svg'
 import { Link } from 'react-router-dom'
+import cn from 'classnames/bind'
+const cx = cn.bind(styles)
 
 // interface SectionProps {
 //   sectionId: string
@@ -10,13 +11,15 @@ import { Link } from 'react-router-dom'
 // }
 
 const Registration = () => {
+  const signUp = location.pathname === '/signup'
+
   function handleBack() {
     window.history.back()
   }
 
+
   return (
     <div>
-      <NavBar />
       <div className={styles.registration}>
         <div className={styles.back} onClick={handleBack}>
           <Back />
@@ -24,7 +27,9 @@ const Registration = () => {
         <div className={styles.blur}>
           <div className={styles.popup}>
             <div className={styles.buttons}>
-              <button className={styles.button}>Регистрация</button>
+              <button className={cx(styles.button, {
+                [styles.buttonPressed] : signUp,
+              })}>Регистрация</button>
               <button className={styles.button}>
                 <Link className={styles.link} to='/signin'>
                   Вход
@@ -33,7 +38,9 @@ const Registration = () => {
             </div>
             <p className={styles.title}>Регистрация</p>
             <RegistrationForm
-              text={'Создайте аккаунт, чтобы мы могли поделиться с Вами результатом оценки'}
+              text={
+                'Создайте аккаунт, чтобы мы могли поделиться с Вами результатом оценки'
+              }
             />
           </div>
         </div>

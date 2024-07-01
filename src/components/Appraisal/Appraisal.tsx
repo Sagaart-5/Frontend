@@ -12,6 +12,7 @@ const Appraisal = () => {
   }
 
   const handleRegistrationOpen = () => {
+    lockScroll()
     setIsRegistrationOpen(true)
     document.body.style.overflow = 'hidden'
   }
@@ -21,6 +22,10 @@ const Appraisal = () => {
     'Немного расскажите об арт-объекте',
     'Создайте аккаунт',
   ]
+
+  const lockScroll = () => {
+    document.body.style.overflow = 'hidden'
+  }
 
   return (
     <div className={styles.container}>
