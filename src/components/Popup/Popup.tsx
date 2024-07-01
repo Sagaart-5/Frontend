@@ -41,15 +41,11 @@ const Popup: FC<PopupProps> = ({
 
   const popupClose = () => {
     setIsRegistrationOpen(false)
-<<<<<<< HEAD
     unlockScroll()
   }
 
   const unlockScroll = () => {
     document.body.style.overflow = 'auto'
-=======
-    document.body.style.overflow = 'unset'
->>>>>>> 83074b464e3f7203ae8b8bc1e03146a389d77cc3
   }
 
   useEffect(() => {
