@@ -4,8 +4,8 @@
 .registration {
   width: 100%;
   height: 100vh;
-  background: rgba(white, 0.2) url('src/assets/images/bg/authorization.jpg') top center / cover
-    no-repeat;
+  background: rgba(white, 0.2) url('src/assets/images/bg/authorization.jpg') top
+    center / cover no-repeat;
   position: relative;
 }
 
@@ -36,7 +36,7 @@
   display: flex;
   gap: 8px;
   background-color: $lightWhite;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 .button {
@@ -45,7 +45,11 @@
   display: block;
   padding: 13px 12px;
   border: none;
-  background-color: inherit;
+  background-color: transparent;
+
+  &Pressed {
+    background-color: $colorLightGray;
+  }
 }
 
 .popup {
@@ -58,4 +62,3 @@
 .link {
   @include resetLink;
 }
-

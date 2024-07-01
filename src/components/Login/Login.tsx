@@ -1,8 +1,9 @@
 import styles from 'src/components/Registration/Registration.module.scss'
 import Back from 'src/assets/images/icons/back.svg'
-import NavBar from 'src/components/NavBar/NavBar'
 import RegistrationForm from 'src/components/RegistrationForm/RegistrationForm'
 import { Link } from 'react-router-dom'
+import cn from 'classnames/bind'
+const cx = cn.bind(styles)
 
 // interface SectionProps {
 //   sectionId: string
@@ -14,11 +15,12 @@ const Login = () => {
     window.history.back()
   }
 
+  const signIn = location.pathname === '/signin'
+
   return (
     <div>
-      <NavBar />
       <div className={styles.registration}>
-        <div className={styles.back}  onClick={handleBack}>
+        <div className={styles.back} onClick={handleBack}>
           <Back />
         </div>
         <div className={styles.blur}>
@@ -29,11 +31,19 @@ const Login = () => {
                   Регистрация
                 </Link>
               </button>
-              <button className={styles.button}>Вход</button>
+              <button
+                className={cx(styles.button, {
+                  [styles.buttonPressed] : signIn,
+                })}
+              >
+                Вход
+              </button>
             </div>
             <p className={styles.title}>Вход</p>
             <RegistrationForm
-              text={'Войдите в аккаунт, чтобы мы могли поделиться с Вами результатом оценки'}
+              text={
+                'Войдите в аккаунт, чтобы мы могли поделиться с Вами результатом оценки'
+              }
             />
           </div>
         </div>

@@ -38,6 +38,11 @@ const Popup: FC<PopupProps> = ({ handleOverlayClose, setIsRegistrationOpen }) =>
 
   const popupClose = () => {
     setIsRegistrationOpen(false)
+    unlockScroll()
+  }
+
+  const unlockScroll = () => {
+    document.body.style.overflow = 'auto'
   }
 
   useEffect(() => {
