@@ -6,7 +6,7 @@ const NavBar = () => {
   const registrationRoute = location.pathname === '/signup'
   const loginRoute = location.pathname === '/signin'
   const profileRoute = location.pathname === '/profile'
-  // const marketRoute = location.pathname === '/маркетплейс'
+  const marketRoute = location.pathname === '/marketplace'
   const catalogRoute = location.pathname === '/catalog'
 
   return (
@@ -24,7 +24,7 @@ const NavBar = () => {
           {registrationRoute && 'Регистрация'}
           {loginRoute && 'Вход'}
           {profileRoute && 'Личный кабинет'}
-          {/* {marketRoute && 'Маркетплейс'} */}
+          {marketRoute && 'Маркетплейс'}
           {catalogRoute && (
             <>
               {/* маркетплей роут дописать */}

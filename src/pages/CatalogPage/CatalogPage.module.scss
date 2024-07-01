@@ -1,0 +1,23 @@
+@import 'src/styles/mixins.scss';
+
+.catalog {
+  max-width: 1440px;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 60px 220px;
+  margin: 0 auto;
+  background-color: $colorBeige;
+}
+
+.grid {
+  @include resetList;
+  max-width: 985px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 203px);
+  grid-template-rows: min-content;
+  grid-auto-rows: min-content;
+  gap: 60px 34px;
+  justify-content: space-between;
+}

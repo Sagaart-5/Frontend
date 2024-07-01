@@ -65,6 +65,7 @@ const Header = () => {
         </ul>
       </nav>
       <div className={styles.rightBlock}>
+        <input className={styles.search} type='text' placeholder='Поиск' />
         <Link to='/' className={styles.iconLink}>
           <CartIcon />
         </Link>

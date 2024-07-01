@@ -56,6 +56,12 @@
   line-height: 40px;
 }
 
+@mixin textSearch {
+  @include forSecondaryText;
+  font-size: 16px;
+  line-height: 19px;
+}
+
 @mixin textInput {
   @include forSecondaryText;
   font-size: 16px;
@@ -171,22 +177,16 @@
   line-height: 24px;
 }
 
-@mixin textSecondarySemiBold18 {
+@mixin textSecondaryRegular18 {
   @include forSecondaryText;
   font-size: 18px;
   line-height: 22px;
 }
 
-@mixin textSecondaryRegular18 {
-  @include textSecondarySemiBold18;
-  font-weight: 500;
-}
-
 @mixin textSecondarySemiBold16 {
   @include forButtonText;
   font-size: 16px;
-  line-height: 24px;
-  letter-spacing: .64px;
+  line-height: 19px;
 }
 
 @mixin textSecondarySemiBold14 {
