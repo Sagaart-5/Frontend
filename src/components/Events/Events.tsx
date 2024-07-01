@@ -9,7 +9,7 @@ interface EventsProps {
 
 const Events: FC<EventsProps> = ({ events }) => {
   return (
-    <div className={styles.events}>
+    <div className={styles.container}>
       <h1 className={styles.title}>События</h1>
       <ul className={styles.list}>
         {events.map(event => (

@@ -19,7 +19,11 @@ const Section: FC<SectionProps> = ({ sectionId, children }) => {
     },
   })
   return (
-    <section id={sectionId} ref={ref} className={styles.section}>
+    <section
+      id={sectionId}
+      ref={ref}
+      className={`${styles.section} ${styles[sectionId]}`}
+    >
       {children}
     </section>
   )

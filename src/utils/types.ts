@@ -8,14 +8,23 @@ export interface EventType {
 
 export interface ArtType {
   id: number
-  author: string
   title: string
+  author: string
   image: string
-  size: string
   price: number
-  category: string
-  orientation: string
-  style: string
-  color: string
+  category?: string
+  orientation?: string
+  style?: string
+  color?: string
+  size?: string
+  description?: string
   popular?: number
+}
+
+export interface AuthorType {
+  id: number
+  name: string
+  image: string
+  about: string
+  arts: ArtType[]
 }

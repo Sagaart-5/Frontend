@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { ArtType } from 'src/utils/types'
+import { numberWithSpaces } from 'src/utils/utils'
 import CartIcon from 'src/assets/images/icons/cart.svg'
 import styles from './Art.module.scss'
 
@@ -10,10 +11,14 @@ interface ArtProps {
   hasHover?: boolean
 }
 
-const Art: FC<ArtProps> = ({ data, isPriceShown = true, hasHover = false }) => {
+const Art: FC<ArtProps> = ({
+  data,
+  isPriceShown = false,
+  hasHover = false,
+}) => {
   return (
-    <Link to={`/art/${data.id}`} className={styles.link}>
-      <article className={styles.art}>
+    <Link to={`/marketplace/catalog/art/${data.id}`} className={styles.link}>
+      <article className={`${styles.art} ${hasHover && styles.hover}`}>
         <div className={styles.picture}>
           <img src={data.image} alt={data.title} className={styles.pic} />
         </div>
@@ -21,12 +26,14 @@ const Art: FC<ArtProps> = ({ data, isPriceShown = true, hasHover = false }) => {
         <p className={styles.author}>{data.author}</p>
         {hasHover && <div className={styles.info}></div>}
         {isPriceShown && (
-          <p className={styles.price}>
-            <span>{`${data.price} руб.`}</span>
+          <div className={styles.priceBlock}>
+            <p className={styles.price}>{`${numberWithSpaces(
+              data.price
+            )} руб.`}</p>
             <div className={styles.cart}>
               <CartIcon />
             </div>
-          </p>
+          </div>
         )}
       </article>
     </Link>

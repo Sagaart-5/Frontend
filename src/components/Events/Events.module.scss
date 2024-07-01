@@ -1,10 +1,8 @@
 @import 'src/styles/mixins.scss';
 
-.events {
-  width: 100%;
+.container {
   box-sizing: border-box;
   padding: 120px 0 120px 60px;
-  background-color: $colorBeige;
 }
 
 .title {
@@ -30,14 +28,12 @@
 .item {
   &:nth-of-type(odd) {
     .picture {
-      // height: 228px;
       height: 16.5vw;
     }
   }
 
   &:nth-of-type(even) {
     .picture {
-      // height: 288px;
       height: 20.87vw;
     }
 
@@ -58,7 +54,6 @@
 }
 
 .picture {
-  // width: 232px;
   width: 16.8vw;
   overflow: hidden;
   margin-bottom: 20px;

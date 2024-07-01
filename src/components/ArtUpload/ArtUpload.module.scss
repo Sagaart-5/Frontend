@@ -1,7 +1,6 @@
 @import 'src/styles/mixins.scss';
 
 .container {
-  width: 873px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +14,7 @@
 }
 
 .image {
-  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   margin-bottom: 24px;

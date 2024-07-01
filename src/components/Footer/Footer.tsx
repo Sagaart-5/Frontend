@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.column}>
-          <Link to='/' reloadDocument>
+          <Link to='/' reloadDocument className={styles.link}>
             <div className={styles.logo} />
           </Link>
           <div className={styles.info}>
@@ -23,7 +23,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <nav>
+        <nav className={styles.navigation}>
           <ul className={styles.menu}>
             <li className={styles.menuItem}>Контакты</li>
             <li className={styles.menuItem}>Сервис</li>
