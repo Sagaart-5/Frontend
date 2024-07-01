@@ -1,0 +1,59 @@
+@import 'src/styles/mixins.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  box-sizing: border-box;
+  padding: 144px 60px;
+  background-color: rgba(black, .4);
+}
+
+.title {
+  @include resetText;
+  @include textSecondarySemiBold48;
+}
+
+.list {
+  @include resetList;
+  display: flex;
+  gap: 20px;
+}
+
+.item {
+  width: 315px;
+  height: 224px;
+  box-sizing: border-box;
+  padding: 40px;
+  @include setBlur;
+}
+
+.subtitle {
+  @include resetText;
+  @include textSecondarySemiBold22;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.currentStep {
+  @include forPrimaryText;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 1px solid rgba($colorDisabled, .4);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.text {
+  @include resetText;
+  @include textSecondaryRegular18;
+  color: $colorDisabled;
+}

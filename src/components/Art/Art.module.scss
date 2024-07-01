@@ -1,0 +1,90 @@
+@import 'src/styles/mixins.scss';
+
+.link {
+  @include resetLink;
+  display: block;
+}
+
+.hover {
+  &:hover {
+    height: 425px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 20px 20px 12px;
+  }
+}
+
+.art {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: $colorBlack;
+
+  &:hover {
+    .pic {
+      transform: scale(1.25);
+    }
+  }
+}
+
+.picture {
+  width: 203px;
+  height: 216px;
+  overflow: hidden;
+}
+
+.pic {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform .6s ease;
+  cursor: pointer;
+}
+
+.title {
+  @include resetText;
+  @include textPrimaryBold16;
+}
+
+.author, .info {
+  @include resetText;
+  @include textPrimaryMedium16;
+  color: $colorGray;
+}
+
+.info {
+
+}
+
+.priceBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price {
+  @include resetText;
+  @include textSecondarySemiBold16;
+}
+
+.cart {
+  padding: 6px;
+
+  & * {
+    width: 20px;
+    height: 20px;
+    display: block;
+    stroke: $colorBlack;
+  }
+
+  &:hover * {
+    stroke-width: 3;
+  }
+
+  &:active {
+    background-color: rgba(white, .1);
+  }
+}

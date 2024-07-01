@@ -1,0 +1,8 @@
+@import 'src/styles/mixins.scss';
+
+.title {
+  @include resetText;
+  @include forPrimaryText;
+  margin: 0 0  14px;
+  text-transform: uppercase;
+}
