@@ -45,6 +45,25 @@
   color: inherit;
 }
 
+@mixin forSecondaryText20 {
+  font-family: $fontSecondary;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@mixin forSecondaryLine20 {
+  @include forSecondaryText20;
+  line-height: 34px;
+}
+
+@mixin forSecondaryText16 {
+  font-family: $fontSecondary;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
 @mixin forButtonText {
   @include forSecondaryText;
   font-weight: 600;

@@ -19,7 +19,7 @@ const Art: FC<ArtProps> = ({
   hasHover = false,
 }) => {
   return (
-    <Link to={`/marketplace/catalog/art/${data.id}`} className={styles.link}>
+    <Link to={`/art/${data.id}`} className={styles.link}>
       <article className={`${styles.art} ${hasHover && styles.hover}`}>
         <div className={styles.picture}>
           <img src={data.image} alt={data.title} className={styles.pic} />

@@ -82,7 +82,7 @@ const Popup: FC<PopupProps> = ({
             {currentStep === 1 && <ArtUpload next={handleNextButtonClick} />}
             {currentStep === 2 && <ArtForm next={handleNextButtonClick} />}
             {currentStep === 3 && (
-              <RegistrationForm
+              <RegistrationForm setIsRegistrationOpen={setIsRegistrationOpen}
                 text={
                   'Создайте аккаунт, чтобы мы могли поделиться с Вами результатом оценки'
                 }
