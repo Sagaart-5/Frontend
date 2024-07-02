@@ -1,20 +1,38 @@
-export const BASE_URL = 'http://158.160.171.160:8000/api/v1';
+interface QueryParams {
+  limit: string;
+  orientation: string;
+  color: string;
+  category: string;
+  style: string;
+  price: string;
+}
 
-const getResponseData = (res: Response) => {
-  if (!res.ok) {
-    return Promise.reject(`Ошибка: ${res.status}`);
+export default function buildQueryString(params: QueryParams): string  {
+  const searchParams = new URLSearchParams();
+
+  if (params.limit) {
+    searchParams.append('limit', params.limit);
   }
-  return res.json();
-};
 
-// export const getArts = () => {
-//   return fetch(`${BASE_URL}/arts/`, {
-//     method: 'GET',
-//   }).then(getResponseData);
-// };
+  if (params.orientation) {
+    searchParams.append('orientation', params.orientation);
+  }
 
-export const getEvents = () => {
-  return fetch(`${BASE_URL}/events/`, {
-    method: 'GET',
-  }).then(getResponseData);
-};
+  if (params.color) {
+    searchParams.append('color', params.color);
+  }
+
+  if (params.category) {
+    searchParams.append('category', params.category);
+  }
+
+  if (params.style) {
+    searchParams.append('style', params.style);
+  }
+
+  if (params.price) {
+    searchParams.append('price', params.price);
+  }
+
+  return searchParams.toString();
+}

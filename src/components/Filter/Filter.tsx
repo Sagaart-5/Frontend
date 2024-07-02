@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import styles from 'src/components/Filter/Filter.module.scss'
 import CheckboxItem from 'src/ui/Checkbox/CheckboxItem'
 import { priceData } from 'src/utils/constants'
+const limit = '5'
 export const BASE_URL = 'http://158.160.171.160:8000/api/v1'
 
 const getResponseData = (res: Response) => {
@@ -18,6 +19,7 @@ export const getSearchFields = () => {
 }
 
 export const getSearchArts = (
+  limit: string,
   orientation: string,
   color: string,
   category: string,
@@ -25,7 +27,7 @@ export const getSearchArts = (
   price: string
 ) => {
   return fetch(
-    `${BASE_URL}/arts/?${orientation ? 'orientation=' : ''}${
+    `${BASE_URL}/arts/?&limit=${limit}&${orientation ? 'orientation=' : ''}${
       orientation ? orientation : ''
     }&${color ? 'color=' : ''}${color ? color : ''}&${
       category ? 'category=' : ''
@@ -40,29 +42,23 @@ export const getSearchArts = (
 
 const Filter = () => {
   const [price, setPrice] = useState('')
-  console.log('price: ', price)
   const [orientation, setOrientation] = useState('')
-
   const [category, setCategory] = useState('')
-  console.log('category: ', category)
   const [style, setStyle] = useState('')
-  console.log('style: ', style)
   const [color, setColor] = useState('')
-  console.log('color: ', color)
-
   const [searchFields, setSearchFields] = useState<any>([])
   const [arts, setArts] = useState<any>([])
   console.log('arts: ', arts)
 
   useEffect(() => {
-    getSearchArts(orientation, color, category, style, price)
+    getSearchArts(limit, orientation, color, category, style, price)
       .then(data => {
         setArts(data)
       })
       .catch(error => {
         console.error(error)
       })
-  }, [orientation, color, category, style, price])
+  }, [limit, orientation, color, category, style, price])
 
   useEffect(() => {
     getSearchFields()
