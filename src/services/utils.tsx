@@ -1,6 +1,4 @@
 export const BASE_URL = 'http://158.160.171.160:8000/api/v1';
-// export const TOKEN = '';
-
 
 const getResponseData = (res: Response) => {
   if (!res.ok) {
@@ -9,16 +7,14 @@ const getResponseData = (res: Response) => {
   return res.json();
 };
 
-// const headers = {
-//   // authorization: `Token ${TOKEN}`,
-//   Accept: 'application/json',
-//   'Content-Type': 'application/json',
+// export const getArts = () => {
+//   return fetch(`${BASE_URL}/arts/`, {
+//     method: 'GET',
+//   }).then(getResponseData);
 // };
 
-export const getArts = () => {
-  return fetch(`${BASE_URL}/arts/`, {
-    // headers,
+export const getEvents = () => {
+  return fetch(`${BASE_URL}/events/`, {
     method: 'GET',
   }).then(getResponseData);
 };
-

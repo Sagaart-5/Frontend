@@ -1,0 +1,22 @@
+@import 'src/styles/mixins.scss';
+@import 'src/styles/variables.scss';
+
+.art {
+  margin: 0;
+  box-sizing: border-box;
+  background-color: $colorBeige;
+  height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.description {
+}
+
+.author {
+}
+
+.works {
+}

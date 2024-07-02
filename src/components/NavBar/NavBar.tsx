@@ -8,6 +8,7 @@ const NavBar = () => {
   const profileRoute = location.pathname === '/profile'
   const marketRoute = location.pathname === '/marketplace'
   const catalogRoute = location.pathname === '/catalog'
+  const imageId = location.pathname === '/art/1'
 
   return (
     <div className={styles.navBar}>
@@ -36,6 +37,18 @@ const NavBar = () => {
               </div>
               Каталог
             </>
+          )}
+          {imageId && (
+            <>
+            {/* маркетплей роут дописать */}
+            <Link className={styles.link} to='/catalog'>
+            Каталог
+            </Link>
+            <div className={styles.image}>
+              <NextIcon />
+            </div>
+            ID доделать
+          </>
           )}
         </p>
       </div>
