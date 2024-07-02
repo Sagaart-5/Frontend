@@ -5,8 +5,8 @@ import styles from 'src/ui/Checkbox/CheckboxItem.module.scss'
 interface CheckboxItemProps {
   title: string
   data: string[]
-  value?: any
-  setValue?: any
+  value: string
+  setValue: (type: string) => void
 }
 
 export default function CheckboxItem({ title, data, value, setValue}: CheckboxItemProps) {
@@ -14,7 +14,6 @@ export default function CheckboxItem({ title, data, value, setValue}: CheckboxIt
     const { name } = e.target
       setValue(name)
   }
-
 
   return (
     <div>
