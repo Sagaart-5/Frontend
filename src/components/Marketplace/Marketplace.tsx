@@ -1,14 +1,18 @@
-import { FC } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ArtType } from 'src/utils/types'
+import { useAppDispatch, useAppSelector } from 'src/services/hooks'
+import { fetchArtsData, selectArts } from 'src/services/slices/artsSlice'
 import Art from '../Art/Art'
 import styles from './Marketplace.module.scss'
 
-interface MarketplaceProps {
-  arts: ArtType[]
-}
+const Marketplace = () => {
+  const dispatch = useAppDispatch()
+  const { arts } = useAppSelector(selectArts)
 
-const Marketplace: FC<MarketplaceProps> = ({ arts }) => {
+  useEffect(() => {
+    dispatch(fetchArtsData())
+  }, [dispatch])
+
   return (
     <div className={styles.container}>
       <div className={styles.headline}>

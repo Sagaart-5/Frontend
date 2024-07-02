@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { RootStore } from 'src/services/store'
 import { EventType } from 'src/utils/types'
-import { getEventsData } from 'src/api/api'
+import { getEventsData } from 'src/services/api'
 
 interface StateType {
   events: EventType[]

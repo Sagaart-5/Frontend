@@ -1,7 +1,3 @@
-import { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from 'src/services/hooks'
-import { fetchEventsData, selectEvents } from 'src/services/slices/eventsSlice'
-import { fetchArtsData, selectArts } from 'src/services/slices/artsSlice'
 import Section from 'src/components/Section/Section'
 import Intro from 'src/components/Intro/Intro'
 import Events from 'src/components/Events/Events'
@@ -12,16 +8,6 @@ import Footer from 'src/components/Footer/Footer'
 import styles from './MainPage.module.scss'
 
 const MainPage = () => {
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    dispatch(fetchEventsData())
-    dispatch(fetchArtsData())
-  }, [dispatch])
-
-  const { events } = useAppSelector(selectEvents)
-  const { arts } = useAppSelector(selectArts)
-
   const sections = [
     {
       id: 'intro',
@@ -29,7 +15,7 @@ const MainPage = () => {
     },
     {
       id: 'events',
-      component: <Events events={events} />,
+      component: <Events />,
     },
     {
       id: 'appraisal',
@@ -37,7 +23,7 @@ const MainPage = () => {
     },
     {
       id: 'marketplace',
-      component: <Marketplace arts={arts} />,
+      component: <Marketplace />,
     },
     {
       id: 'about',

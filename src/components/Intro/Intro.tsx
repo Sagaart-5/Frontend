@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
-import { BG_PATH } from 'src/utils/constants'
 import Button from 'src/ui/Button/Button'
+import intro1 from 'src/assets/images/bg/intro1.jpg'
+import intro2 from 'src/assets/images/bg/intro2.jpg'
+import intro3 from 'src/assets/images/bg/intro3.jpg'
 import styles from './Intro.module.scss'
 
-const slides = ['intro1.jpg', 'intro2.jpg', 'intro3.jpg']
+const slides = [intro1, intro2, intro3]
 
 const Intro = () => {
   const [bgIndex, setBgIndex] = useState(0)
@@ -33,7 +35,7 @@ const Intro = () => {
             index === bgIndex && styles.active
           }`}
           style={{
-            backgroundImage: `url(${BG_PATH}/${slide})`,
+            backgroundImage: `url(${slide})`,
             zIndex: `-${index + 1}`,
           }}
         />
