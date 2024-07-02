@@ -2,7 +2,7 @@ type RequestOptionsType = RequestInit & {
   headers: Record<string, string>
 }
 
-const BASE_URL = 'http://158.160.171.160:8000/api/v1'
+const BASE_URL = 'https://sagaart5.hopto.org/api/v1'
 
 export const checkResponse = (response: Response) => {
   if ( response.ok) {
