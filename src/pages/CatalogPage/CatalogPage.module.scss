@@ -15,9 +15,14 @@
   max-width: 985px;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 203px);
+  grid-template-columns: repeat(auto-fill, 203px);
   grid-template-rows: min-content;
   grid-auto-rows: min-content;
   gap: 60px 34px;
   justify-content: space-between;
+}
+
+.item {
+  min-width: min-content;
+  width: fit-content;
 }

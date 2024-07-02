@@ -1,20 +1,24 @@
-import { FC } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { EventType } from 'src/utils/types'
+import { useAppDispatch, useAppSelector } from 'src/services/hooks'
+import { fetchEventsData, selectEvents } from 'src/services/slices/eventsSlice'
 import styles from './Events.module.scss'
 
-interface EventsProps {
-  events: EventType[]
-}
+const Events = () => {
+  const dispatch = useAppDispatch()
+  const { events } = useAppSelector(selectEvents)
 
-const Events: FC<EventsProps> = ({ events }) => {
+  useEffect(() => {
+    dispatch(fetchEventsData())
+  }, [dispatch])
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>События</h1>
       <ul className={styles.list}>
         {events.map(event => (
           <li key={event.id} className={styles.item}>
-            <Link to={event.link} className={styles.link}>
+            <Link to={event.link} target='_blank' className={styles.link}>
               <div className={styles.picture}>
                 <img
                   src={event.image}
