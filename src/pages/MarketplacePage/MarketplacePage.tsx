@@ -60,8 +60,16 @@ const MarketplacePage = () => {
           </h2>
           <p className={styles.bannerText}>просто и безопасно</p>
           <div className={styles.bannerFilters}>
-            <img src={stubSelectCategory} alt='Заглушка фильтра категории' />
-            <img src={stubSelectPrice} alt='Заглушка фильтра цены' />
+            <img
+              src={stubSelectCategory}
+              alt='Заглушка фильтра категории'
+              className={styles.bannerSelect}
+            />
+            <img
+              src={stubSelectPrice}
+              alt='Заглушка фильтра цены'
+              className={styles.bannerSelect}
+            />
             <Button title='Найти' variant='dark' />
           </div>
         </div>
