@@ -1,12 +1,13 @@
 @import 'src/styles/mixins.scss';
 @import 'src/styles/variables.scss';
 
-
 .navBar {
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   height: 120px;
   box-sizing: border-box;
-  background-color: $colorBeige;
+  background-color: inherit;
 }
 
 .container {
@@ -20,7 +21,7 @@
   @include textPrimaryBold14;
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
 .link {

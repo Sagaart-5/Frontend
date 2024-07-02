@@ -1,0 +1,18 @@
+@import 'src/styles/mixins.scss';
+@import 'src/styles/variables.scss';
+
+.background {
+  background-color: $colorBeige;
+}
+
+.art {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1440px;
+  height: 100%;
+
+}
+
+.wrapper {
+  display: flex;
+}

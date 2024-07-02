@@ -1,14 +1,21 @@
 @import 'src/styles/mixins.scss';
 @import 'src/styles/variables.scss';
 
+.backgroundColor {
+  background-color: $colorBeige;
+}
+
 .wrapper {
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   height: 100vh;
   box-sizing: border-box;
   display: flex;
   position: relative;
   background-color: $colorBeige;
   padding: 0 60px 0 60px;
+  overflow: hidden;
 }
 
 .background {
