@@ -17,36 +17,52 @@ export const getSearchFields = () => {
   }).then(getResponseData)
 }
 
-export const getSearchArts = (orientation: any) => {
-  return fetch(`${BASE_URL}/arts/?${orientation ? 'orientation=' : ''}${orientation ? orientation : ''}`, {
-    method: 'GET',
-  }).then(getResponseData)
+export const getSearchArts = (
+  orientation: string,
+  color: string,
+  category: string,
+  style: string,
+  price: string
+) => {
+  return fetch(
+    `${BASE_URL}/arts/?${orientation ? 'orientation=' : ''}${
+      orientation ? orientation : ''
+    }&${color ? 'color=' : ''}${color ? color : ''}&${
+      category ? 'category=' : ''
+    }${category ? category : ''}&${style ? 'style=' : ''}${
+      style ? style : ''
+    }&${price ? 'price=' : ''}${price ? price : ''}`,
+    {
+      method: 'GET',
+    }
+  ).then(getResponseData)
 }
 
-
 const Filter = () => {
-  const [checkedItems, setCheckedItems] = useState({})
-
-  // const [price, setPrice] = useState()
+  const [price, setPrice] = useState('')
+  console.log('price: ', price)
   const [orientation, setOrientation] = useState('')
-  
-  // const [category, setCategory] = useState({})
-  // const [style, setStyle] = useState({})
-  // const [color, setColor] = useState({})
+
+  const [category, setCategory] = useState('')
+  console.log('category: ', category)
+  const [style, setStyle] = useState('')
+  console.log('style: ', style)
+  const [color, setColor] = useState('')
+  console.log('color: ', color)
 
   const [searchFields, setSearchFields] = useState<any>([])
   const [arts, setArts] = useState<any>([])
   console.log('arts: ', arts)
 
   useEffect(() => {
-    getSearchArts(orientation)
+    getSearchArts(orientation, color, category, style, price)
       .then(data => {
         setArts(data)
       })
       .catch(error => {
         console.error(error)
       })
-  }, [orientation])
+  }, [orientation, color, category, style, price])
 
   useEffect(() => {
     getSearchFields()
@@ -61,16 +77,16 @@ const Filter = () => {
   return (
     <div className={styles.container}>
       <CheckboxItem
-        value={checkedItems}
-        setValue={setCheckedItems}
+        value={price}
+        setValue={setPrice}
         title={'Цена'}
         data={priceData}
       />
       {searchFields.categories && (
         <CheckboxItem
           title={'Категория'}
-          value={checkedItems}
-          setValue={setCheckedItems}
+          value={category}
+          setValue={setCategory}
           data={searchFields.categories}
         />
       )}
@@ -85,16 +101,16 @@ const Filter = () => {
       {searchFields.styles && (
         <CheckboxItem
           title={'Стили'}
-          value={checkedItems}
-          setValue={setCheckedItems}
+          value={style}
+          setValue={setStyle}
           data={searchFields.styles}
         />
       )}
       {searchFields.colors && (
         <CheckboxItem
           title={'Цвет'}
-          value={checkedItems}
-          setValue={setCheckedItems}
+          value={color}
+          setValue={setColor}
           data={searchFields.colors}
         />
       )}
