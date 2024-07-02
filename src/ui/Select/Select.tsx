@@ -13,12 +13,7 @@ export interface ISelect {
   value: string
   setValue: (value: string) => void
 }
-const options = [
-  'дерево',
-  'железо',
-  'люминий',
-  'стекло'
-]
+const options = ['Дерево', 'Железо', 'Алюминий', 'Стекло']
 
 export default function Select({ text, setValue, value }: ISelect) {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -47,7 +42,7 @@ export default function Select({ text, setValue, value }: ISelect) {
       {isOpen && options && (
         <ul
           className={cx('select__optionContainer', {
-            'select__optionContainer--open': isOpen
+            'select__optionContainer--open': isOpen,
           })}
         >
           <SimpleBar style={{ maxHeight: 'inherit' }}>
