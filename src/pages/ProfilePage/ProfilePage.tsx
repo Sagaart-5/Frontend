@@ -8,11 +8,6 @@ import Tariff from '../../components/Tariff/Tariff'
 import Woman from 'src/assets/images/decor/woman.png'
 import styles from './ProfilePage.module.scss'
 
-// interface SectionProps {
-//   sectionId: string
-//   children: ReactNode
-// }
-
 const ProfilePage = () => {
   const [activeItem, setActiveItem] = useState<string | null>(
     localStorage.getItem('activeItem') || 'artUpload'
@@ -23,7 +18,7 @@ const ProfilePage = () => {
   }
 
   return (
-    <>
+    <div className={styles.backgroundColor}>
       <NavBar />
       <div className={styles.wrapper}>
         <div className={styles.container}>
@@ -39,7 +34,7 @@ const ProfilePage = () => {
         {activeItem === 'tariffs' && <Tariff />}
         <div className={styles.background}></div>
       </div>
-    </>
+    </div>
   )
 }
 

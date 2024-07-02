@@ -6,15 +6,17 @@ import styles from 'src/pages/ArtPage/ArtPage.module.scss'
 
 const ArtPage = () => {
   return (
-    <main className={styles.art}>
-      <NavBar />
-      <div className={styles.wrapper}>
-        <ImageContainer />
-        <AboutPicture />
-      </div>
-      <AboutAuthor />
-      <div style={{ height: '420px' }}>
-        <h1>Работы художника</h1>
+    <main className={styles.background}>
+      <div className={styles.art}>
+        <NavBar />
+        <div className={styles.wrapper}>
+          <ImageContainer />
+          <AboutPicture />
+        </div>
+        <AboutAuthor />
+        <div style={{ height: '420px', background: 'inherit' }}>
+          <h1>Работы художника</h1>
+        </div>
       </div>
     </main>
   )

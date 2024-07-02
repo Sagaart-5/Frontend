@@ -11,6 +11,7 @@ const NavBar = () => {
   const imageId = location.pathname === '/art/1'
 
   return (
+    <div className={styles.background}>
     <div className={styles.navBar}>
       <div className={styles.container}>
         <p className={styles.text}>
@@ -21,7 +22,7 @@ const NavBar = () => {
         <div className={styles.image}>
           <NextIcon />
         </div>
-        <p className={styles.text}>
+        <div className={styles.text}>
           {registrationRoute && 'Регистрация'}
           {loginRoute && 'Вход'}
           {profileRoute && 'Личный кабинет'}
@@ -50,8 +51,9 @@ const NavBar = () => {
             ID доделать
           </>
           )}
-        </p>
+        </div>
       </div>
+    </div>
     </div>
   )
 }
