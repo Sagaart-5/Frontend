@@ -28,17 +28,17 @@
 .item {
   &:nth-of-type(odd) {
     .picture {
-      height: 16.5vw;
+      height: 15.834vw;
     }
   }
 
   &:nth-of-type(even) {
     .picture {
-      height: 20.87vw;
+      height: 20vw;
     }
 
     &:last-of-type {
-      margin-right: 60px;
+      padding-right: 60px;
     }
   }
 
@@ -54,7 +54,7 @@
 }
 
 .picture {
-  width: 16.8vw;
+  width: 16.112vw;
   overflow: hidden;
   margin-bottom: 20px;
 }

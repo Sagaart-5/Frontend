@@ -22,7 +22,7 @@ const CatalogPage = () => {
         <Filter />
         <ul className={styles.grid}>
           {arts.map(art => (
-            <li key={art.id}>
+            <li key={art.id} className={styles.item}>
               <Art data={art} isPriceShown={true} hasHover={true} />
             </li>
           ))}

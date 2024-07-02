@@ -14,7 +14,7 @@ const Events: FC<EventsProps> = ({ events }) => {
       <ul className={styles.list}>
         {events.map(event => (
           <li key={event.id} className={styles.item}>
-            <Link to={event.link} className={styles.link}>
+            <Link to={event.link} target='_blank' className={styles.link}>
               <div className={styles.picture}>
                 <img
                   src={event.image}

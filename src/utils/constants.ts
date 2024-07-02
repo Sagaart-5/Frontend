@@ -1,5 +1,3 @@
-export const BG_PATH = 'src/assets/images/bg'
-
 const FILTER_DATA = {
   price: {
     priceOne: 'до 20 000 ₽',
