@@ -6,12 +6,14 @@ import CartIcon from 'src/assets/images/icons/cart.svg'
 import styles from './Art.module.scss'
 
 interface ArtProps {
+  receivedById?: boolean
   data: ArtType
   isPriceShown?: boolean
   hasHover?: boolean
 }
 
 const Art: FC<ArtProps> = ({
+  receivedById = false,
   data,
   isPriceShown = false,
   hasHover = false,
@@ -23,7 +25,11 @@ const Art: FC<ArtProps> = ({
           <img src={data.image} alt={data.title} className={styles.pic} />
         </div>
         <h3 className={styles.title}>{data.title}</h3>
-        <p className={styles.author}>{data.author}</p>
+        <p className={styles.author}>
+          {receivedById
+            ? `${typeof data.author === 'object' && data.author.name}`
+            : `${data.author}`}
+        </p>
         {hasHover && <div className={styles.info}></div>}
         {isPriceShown && (
           <div className={styles.priceBlock}>
