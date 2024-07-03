@@ -2,7 +2,7 @@
 
 Проект представляет собой MVP web-приложения для онлайн-галереи, представленное командой №5 в рамках Хакатон+ по задаче от sagaart.
 
-[**Ссылка на сайт**]()
+[**Ссылка на сайт**](https://sagaart5.vercel.app)
 
 [**Макет Фигма**](https://www.figma.com/file/6rQfXhHHs2luaL3xaYD5Z7?node-id=36:124&locale=en&type=design)
 
@@ -22,9 +22,6 @@
 ![Static Badge](https://img.shields.io/badge/typescript-3178c6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Static Badge](https://img.shields.io/badge/redux_toolkit-764abc?style=for-the-badge&logo=redux&logoColor=white)
 ![Static Badge](https://img.shields.io/badge/react_router-faf9f6?style=for-the-badge&logo=react%20router)
-![Static Badge](https://img.shields.io/badge/react_hook_form-ec5990?style=for-the-badge&logo=react%20hook%20form&logoColor=white)
-![Static Badge](https://img.shields.io/badge/yup-black?style=for-the-badge&logo=yup&logoColor=white)
-![Static Badge](https://img.shields.io/badge/material_ui-faf9f6?style=for-the-badge&logo=mui)
 ![Static Badge](https://img.shields.io/badge/scss-hotpink?style=for-the-badge&logo=sass&logoColor=white)
 ![Static Badge](https://img.shields.io/badge/html5-e34c26?style=for-the-badge&logo=html5&logoColor=white)
 
@@ -80,14 +77,12 @@ npm run dev
 - [TypeScript](https://www.typescriptlang.org/)
 - [Redux/toolkit](https://redux-toolkit.js.org/)
 - [React Router](https://reactrouter.com/en/main)
-- [React Hook Form](https://react-hook-form.com/)
-- [yup](https://github.com/jquense/yup)
-- [Material UI](https://mui.com/material-ui/)
+- [React Intersection Observer](https://github.com/thebuilder/react-intersection-observer)
 - [SASS](https://github.com/sass/dart-sass)
 
 **Шрифты**
 
-В приложении использовались следующие шрифты: Cochin для заголовков, Benzin для подзаголовков, Bahnschrift и [Inter](https://fonts.google.com/specimen/Inter) для основного текста.
+В приложении использовались шрифты Cochin и [Inter](https://fonts.google.com/specimen/Inter).
 
 **Иконки SVG**
 
