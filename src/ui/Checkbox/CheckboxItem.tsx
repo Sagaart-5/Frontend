@@ -4,27 +4,21 @@ import styles from 'src/ui/Checkbox/CheckboxItem.module.scss'
 
 interface CheckboxItemProps {
   title: string
-  data: {
-    label: string
-    name: string
-  }[]
+  data: string[]
+  value: Record<string, boolean>
+  setValue: (type: string) => void
 }
 
-export default function CheckboxItem({ title, data }: CheckboxItemProps) {
-  // const [isInputValid, setIsInputValid] = useState(false);
-
-  // const handleChange = (
-  //   event: React.ChangeEvent<HTMLInputElement>,
-  //   setValue: (value: string) => void
-  // ) => {
-  //   const value = event.target.value;
-  //   setValue(value);
-  //   setIsInputValid(false);
-  // };
-
-  // const handleShowJobInputs = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setIsWorkingChecked(e.target.checked);
-  // };
+export default function CheckboxItem({
+  title,
+  data,
+  value,
+  setValue,
+}: CheckboxItemProps) {
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name } = e.target
+    setValue(name)
+  }
 
   return (
     <div>
@@ -41,9 +35,14 @@ export default function CheckboxItem({ title, data }: CheckboxItemProps) {
           <FormControlLabel
             key={index}
             sx={checkboxDefault}
-            control={<Checkbox />}
-            label={checkbox.label}
-            name={checkbox.name}
+            control={
+              <Checkbox
+                checked={value[checkbox]}
+                onChange={handleCheckboxChange}
+                name={checkbox}
+              />
+            }
+            label={checkbox}
           />
         ))}
       </Box>

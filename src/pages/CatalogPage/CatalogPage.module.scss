@@ -1,5 +1,9 @@
 @import 'src/styles/mixins.scss';
 
+.main {
+  background-color: $colorBeige;
+}
+
 .catalog {
   max-width: 1440px;
   width: 100%;
@@ -7,7 +11,7 @@
   box-sizing: border-box;
   padding: 0 60px 220px;
   margin: 0 auto;
-  background-color: $colorBeige;
+  gap: 85px;
 }
 
 .grid {
