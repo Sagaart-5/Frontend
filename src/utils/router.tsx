@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, useParams } from 'react-router-dom'
 import App from 'src/components/App/App'
 import MainPage from 'src/pages/MainPage/MainPage'
 import Registration from 'src/components/Registration/Registration'

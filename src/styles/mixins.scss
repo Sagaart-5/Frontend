@@ -177,6 +177,12 @@
   letter-spacing: -1.28px;
 }
 
+@mixin textSecondaryRegular40 {
+  @include forSecondaryText;
+  font-size: 40px;
+  line-height: 48px;
+}
+
 @mixin textSecondarySemiBold24 {
   @include forButtonText;
   font-size: 24px;
@@ -196,6 +202,11 @@
   line-height: 24px;
 }
 
+@mixin textSecondaryRegular20 {
+  @include textSecondarySemiBold20;
+  font-weight: 400;
+}
+
 @mixin textSecondaryRegular18 {
   @include forSecondaryText;
   font-size: 18px;
@@ -206,6 +217,12 @@
   @include forButtonText;
   font-size: 16px;
   line-height: 19px;
+}
+
+@mixin textSecondaryRegular16 {
+  @include forSecondaryText;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 @mixin textSecondarySemiBold14 {
