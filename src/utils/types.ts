@@ -36,3 +36,11 @@ export interface AuthorType {
   image: string | null
   arts: ShortArtType[]
 }
+
+export interface FilterType {
+  categories: string[]
+  styles: string[]
+  sizes: string[]
+  orientations: string[]
+  colors: string[]
+}

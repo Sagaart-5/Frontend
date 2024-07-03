@@ -1,16 +1,19 @@
 @import 'src/styles/mixins.scss';
-@import 'src/styles/variables.scss';
 
-.background {
+.main {
   background-color: $colorBeige;
 }
 
-.art {
-  box-sizing: border-box;
-  margin: 0 auto;
+.container {
   max-width: 1440px;
-  height: 100%;
-
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  gap: 120px;
+  box-sizing: border-box;
+  padding: 0 60px 220px;
+  margin: 0 auto;
 }
 
 .wrapper {

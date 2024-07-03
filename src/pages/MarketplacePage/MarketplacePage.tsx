@@ -24,7 +24,7 @@ const MarketplacePage = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const { arts, popularArts } = useAppSelector(selectArts)
-  const limit = 5
+  const limit = '5'
 
   useEffect(() => {
     dispatch(fetchArtsData(limit))

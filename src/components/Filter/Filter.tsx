@@ -1,22 +1,15 @@
 import { useEffect, useState } from 'react'
-import styles from 'src/components/Filter/Filter.module.scss'
+import { BASE_URL, getSearchFields } from 'src/services/api'
 import buildQueryString from 'src/services/utils'
-import CheckboxItem from 'src/ui/Checkbox/CheckboxItem'
 import { priceData } from 'src/utils/constants'
-export const BASE_URL = 'http://158.160.171.160:8000/api/v1'
+import CheckboxItem from 'src/ui/Checkbox/CheckboxItem'
+import styles from 'src/components/Filter/Filter.module.scss'
 
 const getResponseData = (res: Response) => {
   if (!res.ok) {
     return Promise.reject(`Ошибка: ${res.status}`)
   }
   return res.json()
-}
-
-// поля чекбокса
-export const getSearchFields = () => {
-  return fetch(`${BASE_URL}/arts/art_search_fields/`, {
-    method: 'GET',
-  }).then(getResponseData)
 }
 
 export const getSearchArts = (
@@ -43,18 +36,14 @@ export const getSearchArts = (
 }
 
 const Filter = () => {
-  // значения чекбоксов
+  const limit = '12'
   const [price, setPrice] = useState('')
   const [orientation, setOrientation] = useState('')
   const [category, setCategory] = useState('')
   const [style, setStyle] = useState('')
   const [color, setColor] = useState('')
-  //
 
-  // АРТС
-  const limit = '5'
   const [arts, setArts] = useState<any>([])
-  console.log('arts: ', arts)
 
   useEffect(() => {
     getSearchArts(limit, orientation, color, category, style, price)
@@ -66,7 +55,6 @@ const Filter = () => {
       })
   }, [limit, orientation, color, category, style, price])
 
-  // поля чекбокса
   const [searchFields, setSearchFields] = useState<any>([])
 
   useEffect(() => {

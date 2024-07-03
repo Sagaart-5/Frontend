@@ -5,7 +5,7 @@ import styles from 'src/ui/Checkbox/CheckboxItem.module.scss'
 interface CheckboxItemProps {
   title: string
   data: string[]
-  value: Record<string, boolean>
+  value: Record<string, boolean> | string
   setValue: (type: string) => void
 }
 

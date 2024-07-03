@@ -11,7 +11,6 @@ const NavBar = () => {
   const imageId = location.pathname === '/art/1'
 
   return (
-    <div className={styles.background}>
     <div className={styles.navBar}>
       <div className={styles.container}>
         <p className={styles.text}>
@@ -29,7 +28,7 @@ const NavBar = () => {
           {marketRoute && 'Маркетплейс'}
           {catalogRoute && (
             <>
-              <Link className={styles.link} to='/marketplace'>
+              <Link className={styles.link} to='/catalog'>
                 Маркетплейс
               </Link>
               <div className={styles.image}>
@@ -40,19 +39,18 @@ const NavBar = () => {
           )}
           {imageId && (
             <>
-            {/* маркетплей роут дописать */}
-            <Link className={styles.link} to='/catalog'>
-            Каталог
-            </Link>
-            <div className={styles.image}>
-              <NextIcon />
-            </div>
-            ID доделать
-          </>
+              {/* маркетплей роут дописать */}
+              <Link className={styles.link} to='/catalog'>
+                Каталог
+              </Link>
+              <div className={styles.image}>
+                <NextIcon />
+              </div>
+              ID доделать
+            </>
           )}
         </div>
       </div>
-    </div>
     </div>
   )
 }
