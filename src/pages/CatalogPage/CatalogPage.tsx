@@ -11,17 +11,19 @@ import { limit } from 'src/services/constants'
 const CatalogPage = () => {
   const [arts, setArts] = useState<any>([])
   const [searchFields, setSearchFields] = useState<any>([])
-  const [price, setPrice] = useState('')
-  const [orientation, setOrientation] = useState('')
-  const [category, setCategory] = useState('')
-  const [style, setStyle] = useState('')
-  const [color, setColor] = useState('')
+  const [price, setPrice] = useState<any[]>([])
+  const [orientation, setOrientation] = useState<any[]>([])
+  console.log('orientation: ', orientation);
+  const [category, setCategory] = useState<any[]>([])
+  const [style, setStyle] = useState<any[]>([])
+  const [color, setColor] = useState<any[]>([])
 
 
   useEffect(() => {
     Api.getSearchArts(limit, orientation, color, category, style, price)
       .then(data => {
         setArts(data)
+        console.log('data: ', data);
       })
       .catch(error => {
         console.error(error)

@@ -50,20 +50,20 @@ const getResponseData = (res: Response) => {
 
 export const getSearchArts = (
   limit: string,
-  orientation: string,
-  color: string,
-  category: string,
-  style: string,
-  price: string
+  orientation: any[],
+  color: any[],
+  category: any[],
+  style: any[],
+  price: any[]
 ) => {
   return fetch(
     `${BASE_URL}/arts/?${buildQueryString({
       limit,
-      orientation,
-      color,
-      category,
-      style,
-      price,
+      orientation: orientation.join(','),
+      color: color.join(','),
+      category: category.join(','),
+      style: style.join(','),
+      price: price.join(','),
     })}`,
     {
       method: 'GET',
