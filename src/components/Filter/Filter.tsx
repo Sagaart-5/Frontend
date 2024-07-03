@@ -28,7 +28,14 @@ export const getSearchArts = (
   price: string
 ) => {
   return fetch(
-    `${BASE_URL}/arts/?${buildQueryString({limit, orientation, color, category, style, price})}`,
+    `${BASE_URL}/arts/?${buildQueryString({
+      limit,
+      orientation,
+      color,
+      category,
+      style,
+      price,
+    })}`,
     {
       method: 'GET',
     }
@@ -42,7 +49,9 @@ const Filter = () => {
   const [category, setCategory] = useState('')
   const [style, setStyle] = useState('')
   const [color, setColor] = useState('')
+  //
 
+  // АРТС
   const limit = '5'
   const [arts, setArts] = useState<any>([])
   console.log('arts: ', arts)

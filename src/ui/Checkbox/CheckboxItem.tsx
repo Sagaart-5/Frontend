@@ -9,10 +9,15 @@ interface CheckboxItemProps {
   setValue: (type: string) => void
 }
 
-export default function CheckboxItem({ title, data, value, setValue}: CheckboxItemProps) {
+export default function CheckboxItem({
+  title,
+  data,
+  value,
+  setValue,
+}: CheckboxItemProps) {
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name } = e.target
-      setValue(name)
+    setValue(name)
   }
 
   return (
