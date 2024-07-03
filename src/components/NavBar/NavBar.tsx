@@ -27,8 +27,7 @@ const NavBar = () => {
           {marketRoute && 'Маркетплейс'}
           {catalogRoute && (
             <>
-              {/* маркетплей роут дописать */}
-              <Link className={styles.link} to='/'>
+              <Link className={styles.link} to='/marketplace'>
                 Маркетплейс
               </Link>
               <div className={styles.image}>

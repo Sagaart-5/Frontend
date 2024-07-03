@@ -6,8 +6,10 @@ import {
   fetchPopularArts,
   selectArts,
 } from 'src/services/slices/artsSlice'
+import NavBar from 'src/components/NavBar/NavBar'
 import Art from 'src/components/Art/Art'
 import Button from 'src/ui/Button/Button'
+import Footer from 'src/components/Footer/Footer'
 import slide1 from 'src/assets/images/bg/intro1.jpg'
 import slide2 from 'src/assets/images/bg/intro2.jpg'
 import slide3 from 'src/assets/images/bg/intro3.jpg'
@@ -37,91 +39,103 @@ const MarketplacePage = () => {
   }, [slideIndex])
 
   return (
-    <main className={styles.marketplace}>
-      <section className={styles.banner}>
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`${styles.bannerSlide} ${
-              index === slideIndex && styles.active
-            }`}
-            style={{
-              backgroundImage: `url(${slide})`,
-              zIndex: `-${index + 1}`,
-            }}
-          />
-        ))}
-        <h1 className={styles.bannerTitle}>
-          Каталог объектов искусства с аналитикой по ценам
-        </h1>
-        <div className={styles.bannerBlock}>
-          <h2 className={styles.bannerSubtitle}>
-            Покупайте современное искусство
-          </h2>
-          <p className={styles.bannerText}>просто и безопасно</p>
-          <div className={styles.bannerFilters}>
-            <img
-              src={stubSelectCategory}
-              alt='Заглушка фильтра категории'
-              className={styles.bannerSelect}
+    <>
+      <main className={styles.marketplace}>
+        <NavBar />
+        <div className={styles.container}>
+          <section className={styles.banner}>
+            {slides.map((slide, index) => (
+              <div
+                key={index}
+                className={`${styles.bannerSlide} ${
+                  index === slideIndex && styles.active
+                }`}
+                style={{
+                  backgroundImage: `url(${slide})`,
+                  zIndex: `${index}`,
+                }}
+              />
+            ))}
+            <h1 className={styles.bannerTitle}>
+              Каталог объектов искусства с аналитикой по ценам
+            </h1>
+            <div className={styles.bannerBlock}>
+              <h2 className={styles.bannerSubtitle}>
+                Покупайте современное искусство
+              </h2>
+              <p className={styles.bannerText}>просто и безопасно</p>
+              <div className={styles.bannerFilters}>
+                <img
+                  src={stubSelectCategory}
+                  alt='Заглушка фильтра категории'
+                  className={styles.bannerSelect}
+                />
+                <img
+                  src={stubSelectPrice}
+                  alt='Заглушка фильтра цены'
+                  className={styles.bannerSelect}
+                />
+                <Button
+                  title='Найти'
+                  variant='dark'
+                  extraClass={styles.bannerButton}
+                />
+              </div>
+            </div>
+          </section>
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Анонсы категорий</h2>
+            <ul className={styles.categories}>
+              {['Живопись', 'Графика', 'Digital', 'Фотография'].map(
+                (category, index) => (
+                  <li key={index} className={styles.category}>
+                    <div className={styles.categoryOverlay}>
+                      <p className={styles.categoryTitle}>{category}</p>
+                    </div>
+                  </li>
+                )
+              )}
+            </ul>
+            <Button
+              title='Посмотреть все'
+              variant='dark'
+              onClick={() => navigate('/catalog')}
             />
-            <img
-              src={stubSelectPrice}
-              alt='Заглушка фильтра цены'
-              className={styles.bannerSelect}
+          </section>
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Каталог</h2>
+            <ul className={styles.grid}>
+              {arts.map(art => (
+                <li key={art.id}>
+                  <Art data={art} />
+                </li>
+              ))}
+            </ul>
+            <Button
+              title='Посмотреть все'
+              variant='dark'
+              onClick={() => navigate('/catalog')}
             />
-            <Button title='Найти' variant='dark' />
-          </div>
+          </section>
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Популярное</h2>
+            <ul className={styles.grid}>
+              {popularArts.map(art => (
+                <li key={art.id}>
+                  <Art data={art} />
+                </li>
+              ))}
+            </ul>
+            <Button
+              title='Посмотреть все'
+              variant='dark'
+              onClick={() => navigate('/catalog')}
+            />
+          </section>
         </div>
-      </section>
-      <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>Анонсы категорий</h2>
-        <ul className={styles.grid}>
-          {['Живопись', 'Графика', 'Digital', 'Фотография'].map(
-            (category, index) => (
-              <li key={index} className={styles.category}>
-                {category}
-              </li>
-            )
-          )}
-        </ul>
-        <Button
-          title='Посмотреть все'
-          variant='dark'
-          onClick={() => navigate('/catalog')}
-        />
-      </section>
-      <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>Каталог</h2>
-        <ul className={styles.grid}>
-          {arts.map(art => (
-            <li key={art.id}>
-              <Art data={art} />
-            </li>
-          ))}
-        </ul>
-        <Button
-          title='Посмотреть все'
-          variant='dark'
-          onClick={() => navigate('/catalog')}
-        />
-      </section>
-      <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>Популярное</h2>
-        <ul className={styles.grid}>
-          {popularArts.map(art => (
-            <li key={art.id}>
-              <Art data={art} />
-            </li>
-          ))}
-        </ul>
-        <Button
-          title='Посмотреть все'
-          variant='dark'
-          onClick={() => navigate('/catalog')}
-        />
-      </section>
-    </main>
+      </main>
+      <Footer />
+    </>
   )
 }
 
