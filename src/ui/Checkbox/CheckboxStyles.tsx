@@ -4,21 +4,22 @@ export const checkboxDefault = {
   margin: '0',
   columnGap: '3px',
   '.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root': {
-    color: '#CAC4D0',
+    color: '#D2D1D0',
   },
   '& .MuiButtonBase-root': {
     padding: '0',
   },
   '& .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked, .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate':
-    { color: '#6750A4' },
+    { color: '#rgba(0, 0, 0, 0.85)' },
   '& .MuiSvgIcon-root': {
     width: '24px',
     height: '24px',
   },
   '& .css-ahj2mt-MuiTypography-root': {
+    fontFamily: 'Inter, Helvetica, Arial, sans-serif',
     fontSize: '14px',
     fontWeight: '400',
-    lineHeight: '18.2px',
+    lineHeight: '16.9px',
   },
 };
 

@@ -4,15 +4,15 @@
 .navBar {
   width: 100%;
   max-width: 1440px;
-  margin: 0 auto;
   height: 120px;
   box-sizing: border-box;
   background-color: inherit;
 }
 
 .container {
+  width: 100%;
   display: flex;
-  padding: 48px 60px;
+  padding: 48px calc((100vw - 1320px) / 2);
   gap: 4px;
 }
 

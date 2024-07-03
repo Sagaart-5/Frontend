@@ -1,34 +1,73 @@
-import { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from 'src/services/hooks'
-import { fetchArtsData, selectArts } from 'src/services/slices/artsSlice'
+import { useEffect, useState } from 'react'
 import NavBar from 'src/components/NavBar/NavBar'
 import Filter from 'src/components/Filter/Filter'
 import Art from 'src/components/Art/Art'
-import styles from './CatalogPage.module.scss'
+import Footer from 'src/components/Footer/Footer'
+import styles from 'src/pages/CatalogPage/CatalogPage.module.scss'
+import * as Api from 'src/services/utils'
+import { getSearchFields } from 'src/services/api'
+import { limit } from 'src/services/constants'
 
 const CatalogPage = () => {
-  const dispatch = useAppDispatch()
+  const [searchFields, setSearchFields] = useState<any>([])
+  const [price, setPrice] = useState('')
+  const [orientation, setOrientation] = useState('')
+  const [category, setCategory] = useState('')
+  const [style, setStyle] = useState('')
+  const [color, setColor] = useState('')
+
+  const [arts, setArts] = useState<any>([])
 
   useEffect(() => {
-    dispatch(fetchArtsData())
-  }, [dispatch])
+    Api.getSearchArts(limit, orientation, color, category, style, price)
+      .then(data => {
+        setArts(data)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  }, [limit, orientation, color, category, style, price])
 
-  const { arts } = useAppSelector(selectArts)
+  useEffect(() => {
+    getSearchFields()
+      .then(data => {
+        setSearchFields(data)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  }, [])
 
   return (
-    <main className={styles.main}>
-      <NavBar />
-      <section className={styles.catalog}>
-        <Filter />
-        <ul className={styles.grid}>
-          {arts.map(art => (
-            <li key={art.id} className={styles.item}>
-              <Art data={art} isPriceShown={true} hasHover={true} />
-            </li>
-          ))}
-        </ul>
-      </section>
-    </main>
+    <>
+      <main className={styles.main}>
+        <NavBar />
+        <section className={styles.catalog}>
+          <Filter
+            searchFields={searchFields}
+            price={price}
+            setPrice={setPrice}
+            orientation={orientation}
+            setOrientation={setOrientation}
+            category={category}
+            setCategory={setCategory}
+            style={style}
+            setStyle={setStyle}
+            color={color}
+            setColor={setColor}
+          />
+          <ul className={styles.grid}>
+            {arts.results &&
+              arts.results.map(art => (
+                <li key={art.id} className={styles.item}>
+                  <Art data={art} isPriceShown={true} />
+                </li>
+              ))}
+          </ul>
+        </section>
+      </main>
+      <Footer />
+    </>
   )
 }
 

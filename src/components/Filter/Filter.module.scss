@@ -1,10 +1,13 @@
 @import 'src/styles/mixins.scss';
 
 .container {
-  width: 375px;
-  padding: 56px 97px 0 60px;
+  width: 250px;
+  height: 100%;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 36px;
   box-sizing: border-box;
+  box-shadow: $shadow;
+  background-color: $colorWhite;
 }
