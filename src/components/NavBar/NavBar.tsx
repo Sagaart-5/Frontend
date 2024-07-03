@@ -1,9 +1,13 @@
 import styles from 'src/components/NavBar/NavBar.module.scss'
 import NextIcon from 'src/assets/images/icons/arrowR.svg'
 import { Link, useParams } from 'react-router-dom'
+import { useAppSelector } from 'src/services/hooks'
+import { selectArts } from 'src/services/slices/artsSlice'
 
 const NavBar = () => {
   const { id } = useParams()
+  const { art } = useAppSelector(selectArts)
+
   const registrationRoute = location.pathname === '/signup'
   const loginRoute = location.pathname === '/signin'
   const profileRoute = location.pathname === '/profile'
@@ -29,7 +33,7 @@ const NavBar = () => {
           {marketRoute && 'Маркетплейс'}
           {catalogRoute && (
             <>
-              <Link className={styles.link} to='/catalog'>
+              <Link className={styles.link} to='/marketplace'>
                 Маркетплейс
               </Link>
               <div className={styles.image}>
@@ -46,7 +50,7 @@ const NavBar = () => {
               <div className={styles.image}>
                 <NextIcon />
               </div>
-              {id}
+              {art.title}
             </>
           )}
         </div>
