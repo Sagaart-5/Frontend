@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { ArtType } from 'src/utils/types'
 import { numberWithSpaces } from 'src/utils/utils'
 import CartIcon from 'src/assets/images/icons/cart.svg'
@@ -18,6 +18,9 @@ const Art: FC<ArtProps> = ({
   isPriceShown = false,
   hasHover = false,
 }) => {
+  const location = useLocation()
+  const isArtPage = location.pathname.includes(`/art/${data.id}`)
+
   return (
     <Link to={`/art/${data.id}`} className={styles.link}>
       <article className={`${styles.art} ${hasHover && styles.hover}`}>
@@ -25,11 +28,13 @@ const Art: FC<ArtProps> = ({
           <img src={data.image} alt={data.title} className={styles.pic} />
         </div>
         <h3 className={styles.title}>{data.title}</h3>
-        <p className={styles.author}>
-          {receivedById
-            ? `${typeof data.author === 'object' && data.author.name}`
-            : `${data.author}`}
-        </p>
+        {!isArtPage && (
+          <p className={styles.author}>
+            {receivedById && typeof data?.author === 'object'
+              ? data.author.name
+              : data.author}
+          </p>
+        )}
         {hasHover && <div className={styles.info}></div>}
         {isPriceShown && (
           <div className={styles.priceBlock}>

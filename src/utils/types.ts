@@ -16,7 +16,7 @@ interface ShortArtType {
 export interface ArtType {
   id: number
   title: string
-  author: AuthorType | string
+  author: any // AuthorType | string
   image: string
   price: number
   category?: string

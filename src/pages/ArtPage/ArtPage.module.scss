@@ -22,8 +22,6 @@
   gap: 120px;
 }
 
-//
-
 .artContainer {
   max-width: 710px;
   width: 100%;
@@ -81,8 +79,6 @@ height: 484px;
   @include resetText;
   @include textSecondaryRegular14
 }
-
-//
 
 .aboutContainer {
   max-width: 426px;
@@ -170,8 +166,6 @@ height: 484px;
   gap: 20px;
 }
 
-//
-
 .aboutAuthor {
   max-width: 1200px;
   width: 100%;
@@ -205,6 +199,9 @@ height: 484px;
 .authorPhoto {
   width: 426px;
   height: 426px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 .worksBlock {
