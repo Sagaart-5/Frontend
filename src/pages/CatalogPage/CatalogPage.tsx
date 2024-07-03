@@ -4,6 +4,7 @@ import { fetchArtsData, selectArts } from 'src/services/slices/artsSlice'
 import NavBar from 'src/components/NavBar/NavBar'
 import Filter from 'src/components/Filter/Filter'
 import Art from 'src/components/Art/Art'
+import Footer from 'src/components/Footer/Footer'
 import styles from './CatalogPage.module.scss'
 
 const CatalogPage = () => {
@@ -16,19 +17,22 @@ const CatalogPage = () => {
   const { arts } = useAppSelector(selectArts)
 
   return (
-    <main className={styles.main}>
-      <NavBar />
-      <section className={styles.catalog}>
-        <Filter />
-        <ul className={styles.grid}>
-          {arts.map(art => (
-            <li key={art.id} className={styles.item}>
-              <Art data={art} isPriceShown={true} hasHover={true} />
-            </li>
-          ))}
-        </ul>
-      </section>
-    </main>
+    <>
+      <main className={styles.main}>
+        <NavBar />
+        <section className={styles.catalog}>
+          <Filter />
+          <ul className={styles.grid}>
+            {arts.map(art => (
+              <li key={art.id} className={styles.item}>
+                <Art data={art} isPriceShown={true} hasHover={true} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      </main>
+      <Footer />
+    </>
   )
 }
 

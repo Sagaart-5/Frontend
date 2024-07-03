@@ -1,4 +1,4 @@
-import { ArtType, AuthorType } from 'src/utils/types'
+import { ArtType, AuthorType, FilterType } from 'src/utils/types'
 
 export const initialArt: ArtType = {
   id: 0,
@@ -28,4 +28,12 @@ export const initialAuthor: AuthorType = {
   about: '',
   image: '',
   arts: [],
+}
+
+export const initialFilter: FilterType = {
+  categories: [],
+  styles: [],
+  sizes: [],
+  orientations: [],
+  colors: [],
 }
