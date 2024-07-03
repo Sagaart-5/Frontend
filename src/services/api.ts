@@ -17,7 +17,8 @@ const request = (endpoint: string, options?: RequestOptionsType) =>
   fetch(`${BASE_URL}${endpoint}`, options).then(checkResponse)
 
 export const getEventsData = async () => await request('/events')
-export const getArtsData = async (limit?: number) => await request(`/arts${limit ? `/?limit=${limit}` : ''}`)
+export const getArtsData = async (limit?: number) =>
+  await request(`/arts${limit ? `/?limit=${limit}` : ''}`)
 export const getPopularArts = async () => await request('/arts/most_popular')
 export const getArtById = async (id: number) => await request(`/arts/${id}`)
 export const getSearchFields = async () =>

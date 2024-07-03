@@ -1,3 +1,5 @@
+import { BASE_URL } from 'src/services/api'
+
 interface QueryParams {
   category?: string
   style?: string
@@ -38,3 +40,33 @@ const buildQueryString = (params: QueryParams): string => {
 }
 
 export default buildQueryString
+
+const getResponseData = (res: Response) => {
+  if (!res.ok) {
+    return Promise.reject(`Ошибка: ${res.status}`)
+  }
+  return res.json()
+}
+
+export const getSearchArts = (
+  limit: string,
+  orientation: string,
+  color: string,
+  category: string,
+  style: string,
+  price: string
+) => {
+  return fetch(
+    `${BASE_URL}/arts/?${buildQueryString({
+      limit,
+      orientation,
+      color,
+      category,
+      style,
+      price,
+    })}`,
+    {
+      method: 'GET',
+    }
+  ).then(getResponseData)
+}
