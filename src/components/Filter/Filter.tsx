@@ -2,20 +2,6 @@ import { priceData } from 'src/utils/constants'
 import CheckboxItem from 'src/ui/Checkbox/CheckboxItem'
 import styles from 'src/components/Filter/Filter.module.scss'
 
-interface FilterProps {
-  searchFields,
-  price,
-  setPrice,
-  orientation,
-  setOrientation,
-  category,
-  setCategory,
-  style,
-  setStyle,
-  color,
-  setColor,
-}
-
 const Filter = ({
   searchFields,
   price,
