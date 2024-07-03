@@ -1,5 +1,7 @@
 import { ArtType, AuthorType, FilterType } from 'src/utils/types'
 
+export const limit = '55'
+
 export const initialArt: ArtType = {
   id: 0,
   author: {
