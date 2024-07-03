@@ -9,6 +9,7 @@ import { getSearchFields } from 'src/services/api'
 import { limit } from 'src/services/constants'
 
 const CatalogPage = () => {
+  const [arts, setArts] = useState<any>([])
   const [searchFields, setSearchFields] = useState<any>([])
   const [price, setPrice] = useState('')
   const [orientation, setOrientation] = useState('')
@@ -16,7 +17,6 @@ const CatalogPage = () => {
   const [style, setStyle] = useState('')
   const [color, setColor] = useState('')
 
-  const [arts, setArts] = useState<any>([])
 
   useEffect(() => {
     Api.getSearchArts(limit, orientation, color, category, style, price)

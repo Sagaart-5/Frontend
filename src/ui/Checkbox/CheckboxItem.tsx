@@ -5,7 +5,7 @@ import styles from 'src/ui/Checkbox/CheckboxItem.module.scss'
 interface CheckboxItemProps {
   title: string
   data: string[]
-  value: any
+  value: string
   setValue: (type: string) => void
 }
 
@@ -16,9 +16,9 @@ export default function CheckboxItem({
   setValue,
 }: CheckboxItemProps) {
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name } = e.target
-    setValue(name)
-  }
+    const { name, checked } = e.target;
+    setValue(checked ? name : '')
+  };
 
   return (
     <div>
