@@ -197,7 +197,7 @@ opacity: 1;
 
 .grid {
   @include resetList;
-  width: 100%;
+  width: 1320px;
   display: grid;
   grid-template-columns: repeat(auto-fit, 238px);
   grid-template-rows: min-content;

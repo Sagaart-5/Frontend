@@ -1,11 +1,10 @@
 import styles from 'src/components/NavBar/NavBar.module.scss'
 import NextIcon from 'src/assets/images/icons/arrowR.svg'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useAppSelector } from 'src/services/hooks'
 import { selectArts } from 'src/services/slices/artsSlice'
 
 const NavBar = () => {
-  const { id } = useParams()
   const { art } = useAppSelector(selectArts)
 
   const registrationRoute = location.pathname === '/signup'
@@ -13,7 +12,7 @@ const NavBar = () => {
   const profileRoute = location.pathname === '/profile'
   const marketRoute = location.pathname === '/marketplace'
   const catalogRoute = location.pathname === '/catalog'
-  const imageId = location.pathname === `/art/${id}`
+  const imageId = location.pathname.includes("/art/");
 
   return (
     <div className={styles.navBar}>
