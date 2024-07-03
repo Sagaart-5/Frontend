@@ -60,7 +60,7 @@ const CatalogPage = () => {
             {arts.results &&
               arts.results.map(art => (
                 <li key={art.id} className={styles.item}>
-                  <Art data={art} isPriceShown={true} hasHover={true} />
+                  <Art data={art} isPriceShown={true} />
                 </li>
               ))}
           </ul>

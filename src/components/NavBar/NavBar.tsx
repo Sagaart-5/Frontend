@@ -1,14 +1,15 @@
 import styles from 'src/components/NavBar/NavBar.module.scss'
 import NextIcon from 'src/assets/images/icons/arrowR.svg'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 const NavBar = () => {
+  const { id } = useParams()
   const registrationRoute = location.pathname === '/signup'
   const loginRoute = location.pathname === '/signin'
   const profileRoute = location.pathname === '/profile'
   const marketRoute = location.pathname === '/marketplace'
   const catalogRoute = location.pathname === '/catalog'
-  const imageId = location.pathname === '/art/1'
+  const imageId = location.pathname === `/art/${id}`
 
   return (
     <div className={styles.navBar}>
@@ -39,14 +40,13 @@ const NavBar = () => {
           )}
           {imageId && (
             <>
-              {/* маркетплей роут дописать */}
               <Link className={styles.link} to='/catalog'>
                 Каталог
               </Link>
               <div className={styles.image}>
                 <NextIcon />
               </div>
-              ID доделать
+              {id}
             </>
           )}
         </div>

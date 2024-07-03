@@ -1,5 +1,5 @@
-import { FC, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'src/services/hooks'
 import { fetchArtById, selectArts } from 'src/services/slices/artsSlice'
 import { numberWithSpaces } from 'src/utils/utils'
@@ -14,17 +14,17 @@ import ShopIcon from 'src/assets/images/icons/shop.svg'
 import Footer from 'src/components/Footer/Footer'
 import styles from 'src/pages/ArtPage/ArtPage.module.scss'
 
-interface ArtPageProps {
-  id: number
-}
-
-const ArtPage: FC<ArtPageProps> = ({ id }) => {
+const ArtPage = () => {
+  const { id } = useParams()
   const dispatch = useAppDispatch()
   const { art } = useAppSelector(selectArts)
 
   useEffect(() => {
-    dispatch(fetchArtById(id))
-  }, [dispatch])
+    if (id) {
+      const parsedId = parseInt(id, 10)
+      dispatch(fetchArtById(parsedId))
+    }
+  }, [dispatch, id])
 
   const handleBack = () => {
     window.history.back()
@@ -124,11 +124,13 @@ const ArtPage: FC<ArtPageProps> = ({ id }) => {
               </p>
             </div>
             <div>
-              <img
-                className={styles.authorPhoto}
-                src={typeof art.author === 'object' ? art.author.image : ''}
-                alt={typeof art.author === 'object' ? art.author.name : ''}
-              />
+              {art.author && typeof art.author === 'object' && (
+                <img
+                  className={styles.authorPhoto}
+                  src={art.author.image ? art.author.image : ''}
+                  alt={art.author.name ? art.author.name : ''}
+                />
+              )}
             </div>
           </div>
           <div className={styles.worksBlock}>
@@ -140,7 +142,7 @@ const ArtPage: FC<ArtPageProps> = ({ id }) => {
             </div>
             <ul className={styles.grid}>
               {typeof art.author === 'object' &&
-                art.author.arts.map((art, index) => (
+                art.author.arts.slice(0, 5).map((art, index) => (
                   <li key={index}>
                     <Art data={art} />
                   </li>
