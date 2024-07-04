@@ -20,6 +20,9 @@ export const checkboxDefault = {
     fontSize: '14px',
     fontWeight: '400',
     lineHeight: '16.9px',
+    whiteSpace: 'noWrap',
+    overflow: 'hidden'
+
   },
 };
 

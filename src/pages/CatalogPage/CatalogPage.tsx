@@ -21,6 +21,7 @@ const CatalogPage = () => {
     Api.getSearchArts(limit, orientation, color, category, style, price)
       .then(data => {
         setArts(data)
+        console.log('data: ', data);
       })
       .catch(error => {
         console.error(error)
