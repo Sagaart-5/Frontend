@@ -39,7 +39,7 @@
 
 .smallArtContainer {
   padding: 12px 16px;
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .active {
@@ -50,15 +50,17 @@
 .smallPicture {
   width: 91px;
   height: 91px;
+  cursor: pointer;
 }
 
 .largeArtContainer {
-  padding: 106px 112px 0 0 ;
+  padding: 106px 112px 0 0;
 }
 
 .largePicture {
-width: 424px;
-height: 484px;
+  width: 424px;
+  height: 484px;
+  cursor: pointer;
 }
 
 .artTextContainer {
@@ -73,11 +75,12 @@ height: 484px;
   justify-content: center;
   align-items: center;
   gap: 9px;
+  cursor: pointer;
 }
 
 .artText {
   @include resetText;
-  @include textSecondaryRegular14
+  @include textSecondaryRegular14;
 }
 
 .aboutContainer {
@@ -230,7 +233,7 @@ height: 484px;
 
 .grid {
   @include resetList;
-  width: 100%;
+  width: 1318px;
   display: grid;
   grid-template-columns: repeat(auto-fit, 238px);
   grid-template-rows: min-content;

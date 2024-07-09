@@ -21,7 +21,7 @@ const Art: FC<ArtProps> = ({
   const location = useLocation()
   const isArtPage = location.pathname.includes(`/art/${data.id}`)
 
-  return (
+    return (
     <Link to={`/art/${data.id}`} className={styles.link}>
       <article className={`${styles.art} ${hasHover && styles.hover}`}>
         <div className={styles.picture}>

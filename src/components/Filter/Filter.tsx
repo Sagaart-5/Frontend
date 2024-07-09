@@ -1,4 +1,10 @@
-import { priceData } from 'src/utils/constants'
+import {
+  PRICE_DATA,
+  // CATEGOTY_DATA,
+  // ORIANTATION_DATA,
+  // STYLE_DATA,
+  // COLOR_DATA,
+} from 'src/utils/constants'
 import CheckboxItem from 'src/ui/Checkbox/CheckboxItem'
 import styles from 'src/components/Filter/Filter.module.scss'
 
@@ -15,13 +21,15 @@ const Filter = ({
   color,
   setColor,
 }: any) => {
+  console.log('searchFields: ', searchFields)
+
   return (
     <div className={styles.container}>
       <CheckboxItem
         value={price}
         setValue={setPrice}
         title={'Цена'}
-        data={priceData}
+        data={PRICE_DATA}
       />
       {searchFields.categories && (
         <CheckboxItem
