@@ -11,9 +11,14 @@ export default function PopupRegistrationForm({
   setIsRegistrationOpen,
 }: PopupRegistrationFormProps) {
 
+  const unlockScroll = () => {
+    document.body.style.overflow = 'unset'
+  }
+
   const closePopup = () => {
     if (setIsRegistrationOpen)
     setIsRegistrationOpen(false)
+    unlockScroll()
   }
 
   return (

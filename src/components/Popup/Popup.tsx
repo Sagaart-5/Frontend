@@ -41,11 +41,6 @@ const Popup: FC<PopupProps> = ({
 
   const popupClose = () => {
     setIsRegistrationOpen(false)
-    unlockScroll()
-  }
-
-  const unlockScroll = () => {
-    document.body.style.overflow = 'auto'
   }
 
   useEffect(() => {
@@ -82,7 +77,8 @@ const Popup: FC<PopupProps> = ({
             {currentStep === 1 && <ArtUpload next={handleNextButtonClick} />}
             {currentStep === 2 && <ArtForm next={handleNextButtonClick} />}
             {currentStep === 3 && (
-              <RegistrationForm setIsRegistrationOpen={setIsRegistrationOpen}
+              <RegistrationForm
+                setIsRegistrationOpen={setIsRegistrationOpen}
                 text={
                   'Создайте аккаунт, чтобы мы могли поделиться с Вами результатом оценки'
                 }
