@@ -12,7 +12,7 @@ const NavBar = () => {
   const profileRoute = location.pathname === '/profile'
   const marketRoute = location.pathname === '/marketplace'
   const catalogRoute = location.pathname === '/catalog'
-  const imageId = location.pathname.includes("/art/");
+  const imageId = location.pathname.includes('/art/')
 
   return (
     <div className={styles.navBar}>
