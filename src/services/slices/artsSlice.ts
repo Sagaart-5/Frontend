@@ -1,13 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { RootStore } from 'src/services/store'
-import { getArtsData, getArtById, getPopularArts } from 'src/services/api'
-import { ArtType } from 'src/utils/types'
-import { initialArt } from 'src/services/constants'
+import { getArtsData, getArtById, getAuthorById, getPopularArts } from 'src/services/api'
+import { ArtType, AuthorType } from 'src/utils/types'
+import { initialArt, initialAuthor } from 'src/services/constants'
 
 interface StateType {
   arts: ArtType[]
   popularArts:  ArtType[]
-  art: ArtType
+  art: ArtType | undefined
+  author: AuthorType | undefined
   isLoading: boolean
   error: string | null | unknown
 }
@@ -16,12 +17,14 @@ const initialState: StateType = {
   arts: [],
   popularArts: [],
   art: initialArt,
+  author: initialAuthor,
   isLoading: false,
   error: null
 }
 
 export const fetchArtsData = createAsyncThunk('fetch/arts', getArtsData)
 export const fetchArtById = createAsyncThunk('fetch/art', getArtById)
+export const fetchAuthorById = createAsyncThunk('fetch/author', getAuthorById)
 export const fetchPopularArts = createAsyncThunk('fetch/popular', getPopularArts)
 
 const artsSlice = createSlice({
@@ -34,9 +37,10 @@ const artsSlice = createSlice({
         state.isLoading = true
       })
       .addCase(fetchArtsData.fulfilled, (state, action) => {
-        state.arts = action.payload.results
+        state.arts = action.payload
         state.isLoading = false
         state.error = null
+        console.log('arts: ', state.arts)
       })
       .addCase(fetchArtsData.rejected, (state, action) => {
         state.isLoading = false
@@ -49,6 +53,7 @@ const artsSlice = createSlice({
         state.popularArts = action.payload
         state.isLoading = false
         state.error = null
+        console.log('popularArts: ', state.popularArts)
       })
       .addCase(fetchPopularArts.rejected, (state, action) => {
         state.isLoading = false
@@ -63,6 +68,18 @@ const artsSlice = createSlice({
         state.error = null
       })
       .addCase(fetchArtById.rejected, (state, action) => {
+        state.isLoading = false
+        state.error = action.error.message
+      })
+      .addCase(fetchAuthorById.pending, state => {
+        state.isLoading = true
+      })
+      .addCase(fetchAuthorById.fulfilled, (state, action) => {
+        state.author = action.payload
+        state.isLoading = false
+        state.error = null
+      })
+      .addCase(fetchAuthorById.rejected, (state, action) => {
         state.isLoading = false
         state.error = action.error.message
       })

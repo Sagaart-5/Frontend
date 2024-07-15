@@ -1,7 +1,12 @@
 import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'src/services/hooks'
-import { fetchArtById, selectArts } from 'src/services/slices/artsSlice'
+import {
+  fetchArtById,
+  fetchAuthorById,
+  selectArts,
+} from 'src/services/slices/artsSlice'
+import { initialArt, initialAuthor } from 'src/services/constants'
 import { numberWithSpaces } from 'src/utils/utils'
 import NavBar from 'src/components/NavBar/NavBar'
 import Button from 'src/ui/Button/Button'
@@ -17,18 +22,23 @@ import styles from 'src/pages/ArtPage/ArtPage.module.scss'
 const ArtPage = () => {
   const { id } = useParams()
   const dispatch = useAppDispatch()
-  const { art } = useAppSelector(selectArts)
+  let { art, author } = useAppSelector(selectArts)
+
+  art = typeof art !== 'undefined' ? art : initialArt
+  author = typeof author !== 'undefined' ? author : initialAuthor
 
   useEffect(() => {
     if (id) {
       const parsedId = parseInt(id, 10)
       dispatch(fetchArtById(parsedId))
+      dispatch(fetchAuthorById(art.authorId))
     }
-  }, [dispatch, id])
+  }, [dispatch, id, art])
 
   const handleBack = () => {
     window.history.back()
   }
+
   return (
     <>
       <main className={styles.main}>
@@ -84,9 +94,7 @@ const ArtPage = () => {
               </button>
               <div className={styles.underline}>
                 <h2 className={styles.title}>{art.title}</h2>
-                <p className={styles.author}>
-                  {typeof art.author === 'object' && art.author.name}
-                </p>
+                <p className={styles.author}>{art.author}</p>
                 <p className={styles.params}>{`${art.style}, ${art.year}`}</p>
                 <p className={styles.params}>{art.category}</p>
                 <p className={styles.params}>{art.size}</p>
@@ -116,21 +124,15 @@ const ArtPage = () => {
           <div className={styles.aboutAuthor}>
             <div className={styles.authorContainer}>
               <p className={styles.authorHint}>о художнике:</p>
-              <p className={styles.authorTitle}>
-                {typeof art.author === 'object' && art.author.name}
-              </p>
-              <p className={styles.authorDescription}>
-                {typeof art.author === 'object' && art.author.about}
-              </p>
+              <p className={styles.authorTitle}>{author.name}</p>
+              <p className={styles.authorDescription}>{author.about}</p>
             </div>
             <div>
-              {art.author && typeof art.author === 'object' && (
-                <img
-                  className={styles.authorPhoto}
-                  src={art.author.image ? art.author.image : ''}
-                  alt={art.author.name ? art.author.name : ''}
-                />
-              )}
+              <img
+                className={styles.authorPhoto}
+                src={author.image ? author.image : ''}
+                alt={author.name}
+              />
             </div>
           </div>
           <div className={styles.worksBlock}>
@@ -141,10 +143,10 @@ const ArtPage = () => {
               </Link>
             </div>
             <ul className={styles.grid}>
-              {typeof art.author === 'object' &&
-                art.author.arts.slice(0, 5).map((art, index) => (
+              {author.arts?.length &&
+                author.arts.slice(0, 5).map((art, index) => (
                   <li key={index}>
-                    <Art data={art} />
+                    <Art data={art} isPriceShown={true} />
                   </li>
                 ))}
             </ul>

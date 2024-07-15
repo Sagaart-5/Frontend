@@ -8,6 +8,14 @@ import Event6 from 'src/assets/images/mock/events/event6.jpg'
 import Event7 from 'src/assets/images/mock/events/event7.jpg'
 import Event8 from 'src/assets/images/mock/events/event8.jpg'
 
+// Authors
+import AmeliaCastillo from 'src/assets/images/mock/authors/Amelia_Castillo.png'
+import AnnabelleSmith from 'src/assets/images/mock/authors/Annabelle_Smith.png'
+import EmileLegrand from 'src/assets/images/mock/authors/Emile_Legrand.png'
+import LinaRamirez from 'src/assets/images/mock/authors/Lina_Ramirez.png'
+import MiguelRivera from 'src/assets/images/mock/authors/Miguel_Rivera.png'
+import SamanthaHall from 'src/assets/images/mock/authors/Samantha_Hall.png'
+
 // Abstraction
 import Crowd from 'src/assets/images/mock/arts/abstraction/crowd.jpg'
 import Eye from 'src/assets/images/mock/arts/abstraction/eye.jpg'
@@ -90,6 +98,12 @@ export {
   Event6,
   Event7,
   Event8,
+  AmeliaCastillo,
+  AnnabelleSmith,
+  EmileLegrand,
+  LinaRamirez,
+  MiguelRivera,
+  SamanthaHall,
   Crowd,
   Eye,
   Jellyfish,

@@ -47,6 +47,12 @@
   border: $borderImage;
 }
 
+.smallPicture, .largePicture {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
 .smallPicture {
   width: 91px;
   height: 91px;
@@ -57,8 +63,8 @@
 }
 
 .largePicture {
-width: 424px;
-height: 484px;
+  width: 424px;
+  height: 484px;
 }
 
 .artTextContainer {
