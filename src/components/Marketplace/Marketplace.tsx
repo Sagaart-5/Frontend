@@ -8,9 +8,10 @@ import styles from './Marketplace.module.scss'
 const Marketplace = () => {
   const dispatch = useAppDispatch()
   const { arts } = useAppSelector(selectArts)
+  const limit = 10
 
   useEffect(() => {
-    dispatch(fetchArtsData())
+    dispatch(fetchArtsData(limit))
   }, [dispatch])
 
   return (
