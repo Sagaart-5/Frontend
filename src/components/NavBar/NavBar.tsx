@@ -3,9 +3,11 @@ import NextIcon from 'src/assets/images/icons/arrowR.svg'
 import { Link } from 'react-router-dom'
 import { useAppSelector } from 'src/services/hooks'
 import { selectArts } from 'src/services/slices/artsSlice'
+import { initialArt } from 'src/services/constants'
 
 const NavBar = () => {
-  const { art } = useAppSelector(selectArts)
+  let { art } = useAppSelector(selectArts)
+  art = typeof art !== 'undefined' ? art : initialArt
 
   const registrationRoute = location.pathname === '/signup'
   const loginRoute = location.pathname === '/signin'
