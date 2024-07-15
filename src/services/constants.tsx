@@ -4,13 +4,8 @@ export const limit = '55'
 
 export const initialArt: ArtType = {
   id: 0,
-  author: {
-    id: 0,
-    name: '',
-    about: '',
-    image: null,
-    arts: [],
-  },
+  author: '',
+  authorId: 0,
   title: '',
   image: '',
   price: 0,

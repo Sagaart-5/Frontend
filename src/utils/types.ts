@@ -6,7 +6,7 @@ export interface EventType {
   link: string
 }
 
-interface ShortArtType {
+export interface ShortArtType {
   id: number
   title: string
   image: string
@@ -16,7 +16,8 @@ interface ShortArtType {
 export interface ArtType {
   id: number
   title: string
-  author: any // AuthorType | string
+  author: string
+  authorId: number
   image: string
   price: number
   category?: string
@@ -26,7 +27,7 @@ export interface ArtType {
   size?: string
   year?: number
   description?: string
-  popular?: number
+  popular: number
 }
 
 export interface AuthorType {
@@ -34,7 +35,7 @@ export interface AuthorType {
   name: string
   about: string
   image: string | null
-  arts: ShortArtType[]
+  arts?: ShortArtType[]
 }
 
 export interface FilterType {
