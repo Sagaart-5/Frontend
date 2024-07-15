@@ -4,39 +4,69 @@ import Filter from 'src/components/Filter/Filter'
 import Art from 'src/components/Art/Art'
 import Footer from 'src/components/Footer/Footer'
 import styles from 'src/pages/CatalogPage/CatalogPage.module.scss'
-import * as Api from 'src/services/utils'
-import { getSearchFields } from 'src/services/api'
-import { limit } from 'src/services/constants'
+import { mockArtsData } from 'src/utils/mock/mockArtsData'
+// import * as Api from 'src/services/utils'
+// import { getSearchFields } from 'src/services/api'
+// import { limit } from 'src/services/constants'
 
 const CatalogPage = () => {
-  const [arts, setArts] = useState<any>([])
-  const [searchFields, setSearchFields] = useState<any>([])
+  // const [arts, setArts] = useState<any>([])
+  // const [searchFields, setSearchFields] = useState<any>([])
   const [price, setPrice] = useState<any[]>([])
   const [orientation, setOrientation] = useState<any[]>([])
   const [category, setCategory] = useState<any[]>([])
   const [style, setStyle] = useState<any[]>([])
   const [color, setColor] = useState<any[]>([])
 
-  useEffect(() => {
-    Api.getSearchArts(limit, orientation, color, category, style, price)
-      .then(data => {
-        setArts(data)
-        console.log('data: ', data);
-      })
-      .catch(error => {
-        console.error(error)
-      })
-  }, [limit, orientation, color, category, style, price])
+  // useEffect(() => {
+  //   Api.getSearchArts(limit, orientation, color, category, style, price)
+  //     .then(data => {
+  //       setArts(data)
+  //       console.log('data: ', data);
+  //     })
+  //     .catch(error => {
+  //       console.error(error)
+  //     })
+  // }, [limit, orientation, color, category, style, price])
 
-  useEffect(() => {
-    getSearchFields()
-      .then(data => {
-        setSearchFields(data)
-      })
-      .catch(error => {
-        console.error(error)
-      })
-  }, [])
+  // useEffect(() => {
+  //   getSearchFields()
+  //     .then(data => {
+  //       setSearchFields(data)
+  //     })
+  //     .catch(error => {
+  //       console.error(error)
+  //     })
+  // }, [])
+
+  const filterArtData = (data, filters) => {
+    return data.filter(art => {
+      if (
+        (filters.price.length === 0 ||
+          filters.price.some(priceRange => {
+            const [min, max] = priceRange.split(' - ').map(Number)
+            return art.price >= min && art.price <= max
+          })) &&
+        (filters.orientation.length === 0 ||
+          filters.orientation.includes(art.orientation)) &&
+        (filters.category.length === 0 ||
+          filters.category.includes(art.category)) &&
+        (filters.style.length === 0 || filters.style.includes(art.style)) &&
+        (filters.color.length === 0 || filters.color.includes(art.color))
+      ) {
+        return true
+      }
+      return false
+    })
+  }
+
+  const filteredArtData = filterArtData(mockArtsData, {
+    price,
+    orientation,
+    category,
+    style,
+    color,
+  })
 
   return (
     <>
@@ -44,7 +74,7 @@ const CatalogPage = () => {
         <NavBar />
         <section className={styles.catalog}>
           <Filter
-            searchFields={searchFields}
+            // searchFields={searchFields}
             price={price}
             setPrice={setPrice}
             orientation={orientation}
@@ -57,13 +87,20 @@ const CatalogPage = () => {
             setColor={setColor}
           />
           <ul className={styles.grid}>
+            {filteredArtData.map(art => (
+                <li key={art.id} className={styles.item}>
+                  <Art data={art} isPriceShown={true} />
+                </li>
+              ))}
+          </ul>
+          {/* <ul className={styles.grid}>
             {arts.results &&
               arts.results.map(art => (
                 <li key={art.id} className={styles.item}>
                   <Art data={art} isPriceShown={true} />
                 </li>
               ))}
-          </ul>
+          </ul> */}
         </section>
       </main>
       <Footer />

@@ -39,6 +39,7 @@ export interface AuthorType {
 }
 
 export interface FilterType {
+  price: string[]
   categories: string[]
   styles: string[]
   sizes: string[]

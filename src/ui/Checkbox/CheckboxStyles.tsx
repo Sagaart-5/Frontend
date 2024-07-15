@@ -22,7 +22,6 @@ export const checkboxDefault = {
     lineHeight: '16.9px',
     whiteSpace: 'noWrap',
     overflow: 'hidden'
-
   },
 };
 

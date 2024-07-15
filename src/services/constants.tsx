@@ -28,6 +28,7 @@ export const initialAuthor: AuthorType = {
 }
 
 export const initialFilter: FilterType = {
+  price: [],
   categories: [],
   styles: [],
   sizes: [],
