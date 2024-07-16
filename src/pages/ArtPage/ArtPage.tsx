@@ -3,6 +3,8 @@ import { Link, useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'src/services/hooks'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode } from 'swiper/modules'
+import 'swiper/css';
+import 'swiper/css/free-mode';
 import {
   fetchArtById,
   fetchAuthorById,
@@ -173,15 +175,20 @@ const ArtPage = () => {
               </Link>
             </div>
             <button
-              style={{ height: '20px', width: '20px', background: 'red' }}
+              style={{ height: '40px', width: '40px', background: 'red' }}
               onClick={() => changeSlideBtn('prev')}
               disabled={statusBtnSlide.start}
             >
               -
             </button>
+            <button
+              onClick={() => changeSlideBtn('next')}
+              style={{ height: '40px', width: '40px', background: 'white' }}
+              disabled={statusBtnSlide.end}
+            >
+              +
+            </button>
             <Swiper
-              // slidesPerView={5}
-              // spaceBetween={48}
               onSlideChange={() => {
                 handleDisBtn()
               }}
@@ -208,13 +215,6 @@ const ArtPage = () => {
                   </SwiperSlide>
                 ))}
             </Swiper>
-            <button
-              onClick={() => changeSlideBtn('next')}
-              style={{ height: '20px', width: '20px', background: 'black' }}
-              disabled={statusBtnSlide.end}
-            >
-              -
-            </button>
           </div>
         </div>
       </main>
