@@ -1,6 +1,8 @@
-import { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'src/services/hooks'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { FreeMode } from 'swiper/modules'
 import {
   fetchArtById,
   fetchAuthorById,
@@ -18,6 +20,7 @@ import MetkaIcon from 'src/assets/images/icons/metka.svg'
 import ShopIcon from 'src/assets/images/icons/shop.svg'
 import Footer from 'src/components/Footer/Footer'
 import styles from 'src/pages/ArtPage/ArtPage.module.scss'
+type Swiper = any;
 
 const ArtPage = () => {
   const { id } = useParams()
@@ -37,6 +40,33 @@ const ArtPage = () => {
 
   const handleBack = () => {
     window.history.back()
+  }
+
+  // Свайпер
+
+  const [statusBtnSlide, setStatusBtnSlide] = useState({
+    start: true,
+    end: false,
+  })
+  const swiper = React.useRef<Swiper | null>(null);
+
+  const handleDisBtn = () => {
+    if (swiper.current && swiper.current.swiper) {
+      setStatusBtnSlide({
+        start: swiper.current.swiper.isBeginning,
+        end: swiper.current.swiper.isEnd,
+      })
+    }
+  }
+
+  const changeSlideBtn = side => {
+    if (swiper.current && swiper.current.swiper) {
+      side === 'prev'
+        ? swiper.current.swiper.slidePrev()
+        : side === 'next'
+        ? swiper.current.swiper.slideNext()
+        : console.log('Слайд не найден')
+    }
   }
 
   return (
@@ -142,14 +172,49 @@ const ArtPage = () => {
                 смотреть все
               </Link>
             </div>
-            <ul className={styles.grid}>
+            <button
+              style={{ height: '20px', width: '20px', background: 'red' }}
+              onClick={() => changeSlideBtn('prev')}
+              disabled={statusBtnSlide.start}
+            >
+              -
+            </button>
+            <Swiper
+              // slidesPerView={5}
+              // spaceBetween={48}
+              onSlideChange={() => {
+                handleDisBtn()
+              }}
+              tag='ul'
+              freeMode={true}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[FreeMode]}
+              ref={swiper}
+              className={styles.swiper}
+              breakpoints={{
+                1440: {
+                  slidesPerView: 5,
+                  spaceBetween: 32,
+                },
+              }}
+
+            >
               {author.arts?.length &&
-                author.arts.slice(0, 5).map((art, index) => (
-                  <li key={index}>
+                author.arts.map(art => (
+                  <SwiperSlide key={art.id}>
                     <Art data={art} isPriceShown={true} />
-                  </li>
+                  </SwiperSlide>
                 ))}
-            </ul>
+            </Swiper>
+            <button
+              onClick={() => changeSlideBtn('next')}
+              style={{ height: '20px', width: '20px', background: 'black' }}
+              disabled={statusBtnSlide.end}
+            >
+              -
+            </button>
           </div>
         </div>
       </main>
