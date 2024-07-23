@@ -6,7 +6,6 @@ import Footer from 'src/components/Footer/Footer'
 import styles from 'src/pages/CatalogPage/CatalogPage.module.scss'
 import { mockArtsData } from 'src/utils/mock/mockArtsData'
 // import * as Api from 'src/services/utils'
-// import { getSearchFields } from 'src/services/api'
 // import { limit } from 'src/services/constants'
 
 const CatalogPage = () => {
@@ -17,8 +16,9 @@ const CatalogPage = () => {
   const [category, setCategory] = useState<any[]>([])
   const [style, setStyle] = useState<any[]>([])
   const [color, setColor] = useState<any[]>([])
+  const [visibleItems, setVisibleItems] = useState(12)
 
-  // useEffect(() => {
+    // useEffect(() => {
   //   Api.getSearchArts(limit, orientation, color, category, style, price)
   //     .then(data => {
   //       setArts(data)
@@ -39,6 +39,7 @@ const CatalogPage = () => {
   //     })
   // }, [])
 
+  // Фильтрация
   const filterArtData = (data, filters) => {
     return data.filter(art => {
       if (
@@ -68,13 +69,30 @@ const CatalogPage = () => {
     color,
   })
 
+  // Подгрузка карточек
+  const handleScroll = () => {
+    const scrollY = window.scrollY
+    const windowHeight = window.innerHeight
+    const documentHeight = document.documentElement.scrollHeight
+    if (scrollY + windowHeight >= documentHeight - 400) {
+      setVisibleItems(prev => Math.min(prev + 4, filteredArtData.length))
+    }
+  }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+  
   return (
     <>
       <main className={styles.main}>
         <NavBar />
         <section className={styles.catalog}>
           <Filter
-            // searchFields={searchFields}
             price={price}
             setPrice={setPrice}
             orientation={orientation}
@@ -87,11 +105,11 @@ const CatalogPage = () => {
             setColor={setColor}
           />
           <ul className={styles.grid}>
-            {filteredArtData.map(art => (
-                <li key={art.id} className={styles.item}>
-                  <Art data={art} isPriceShown={true} />
-                </li>
-              ))}
+            {filteredArtData.slice(0, visibleItems).map(art => (
+              <li key={art.id} className={styles.item}>
+                <Art data={art} isPriceShown={true} />
+              </li>
+            ))}
           </ul>
           {/* <ul className={styles.grid}>
             {arts.results &&

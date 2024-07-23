@@ -1,15 +1,8 @@
-// import {
-//   PRICE_DATA,
-//   ORIANTATION_DATA,
-//   STYLE_DATA,
-//   COLOR_DATA,
-// } from 'src/utils/constants'
 import CheckboxItem from 'src/ui/Checkbox/CheckboxItem'
 import styles from 'src/components/Filter/Filter.module.scss'
 import { mockSearchFields } from 'src/utils/mock/mockSearchFields'
 
 const Filter = ({
-  // searchFields,
   price,
   setPrice,
   orientation,

@@ -1,8 +1,24 @@
 @import 'src/styles/mixins.scss';
 
+.container {
+display: flex;
+justify-content: space-between
+}
+
 .title {
   @include resetText;
   @include forPrimaryText;
-  margin: 0 0 14px;
   text-transform: uppercase;
 }
+
+.hideCheckbox {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.hideCheckboxRotate {
+  transform: rotate(180deg);
+}
+
+
