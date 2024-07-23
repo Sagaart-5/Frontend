@@ -15,6 +15,8 @@ export default function PopupRegistrationForm({
     document.body.style.overflow = 'unset'
   }
 
+const signup = location.pathname === '/signup'
+
   const closePopup = () => {
     if (setIsRegistrationOpen)
     setIsRegistrationOpen(false)
@@ -31,30 +33,30 @@ export default function PopupRegistrationForm({
           placeholder='Имя'
           required={true}
         />
-        <input
+        {signup ? <input
           className={styles.input}
           type='phone'
           placeholder='8 (____) ____ - ____ - __'
           required={true}
-        />
-        <input
+        /> : ''}
+        {signup ? <input
           className={styles.input}
           type='text'
           placeholder='Email'
           required={true}
-        />
+        /> : ''}
         <input
           className={styles.input}
           type='password'
           placeholder='Пароль'
           required={true}
         />
-        <input
+        {signup ? <input
           className={styles.input}
           type='password'
           placeholder='Повторите пароль'
           required={true}
-        />
+        /> : ''}
       </form>
       <Button title='Далее' onClick={closePopup} />
     </div>

@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
 import CartIcon from 'src/assets/images/icons/cart.svg'
+import Bell from 'src/assets/images/icons/Bell.svg'
 import ProfileIcon from 'src/assets/images/icons/profile.svg'
 import styles from './Header.module.scss'
 
@@ -68,6 +69,9 @@ const Header = () => {
         <input className={styles.search} type='text' placeholder='Поиск' />
         <Link to='/' className={styles.iconLink}>
           <CartIcon />
+        </Link>
+        <Link to='/signup' className={styles.iconLink}>
+          <Bell />
         </Link>
         <Link to='/profile' className={styles.iconLink}>
           <ProfileIcon />

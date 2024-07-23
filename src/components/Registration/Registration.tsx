@@ -5,18 +5,12 @@ import { Link } from 'react-router-dom'
 import cn from 'classnames/bind'
 const cx = cn.bind(styles)
 
-// interface SectionProps {
-//   sectionId: string
-//   children: ReactNode
-// }
-
 const Registration = () => {
   const signUp = location.pathname === '/signup'
 
   function handleBack() {
     window.history.back()
   }
-
 
   return (
     <div>

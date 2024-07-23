@@ -3,8 +3,8 @@ import { Link, useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'src/services/hooks'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode } from 'swiper/modules'
-import 'swiper/css';
-import 'swiper/css/free-mode';
+import 'swiper/css'
+import 'swiper/css/free-mode'
 import {
   fetchArtById,
   fetchAuthorById,
@@ -20,9 +20,11 @@ import UpIcon from 'src/assets/images/icons/up.svg'
 import BackIcon from 'src/assets/images/icons/arrow-left.svg'
 import MetkaIcon from 'src/assets/images/icons/metka.svg'
 import ShopIcon from 'src/assets/images/icons/shop.svg'
+import Left from 'src/assets/images/icons/Left.svg'
+import Right from 'src/assets/images/icons/Right.svg'
 import Footer from 'src/components/Footer/Footer'
 import styles from 'src/pages/ArtPage/ArtPage.module.scss'
-type Swiper = any;
+type Swiper = any
 
 const ArtPage = () => {
   const { id } = useParams()
@@ -50,7 +52,7 @@ const ArtPage = () => {
     start: true,
     end: false,
   })
-  const swiper = React.useRef<Swiper | null>(null);
+  const swiper = React.useRef<Swiper | null>(null)
 
   const handleDisBtn = () => {
     if (swiper.current && swiper.current.swiper) {
@@ -175,19 +177,22 @@ const ArtPage = () => {
               </Link>
             </div>
             <button
-              style={{ height: '40px', width: '40px', background: 'red' }}
+              className={`${styles.button} ${styles.buttonLeft}`}
               onClick={() => changeSlideBtn('prev')}
               disabled={statusBtnSlide.start}
             >
-              -
+              <Left />
             </button>
             <button
+              className={`${styles.button} ${styles.buttonRight}`}
               onClick={() => changeSlideBtn('next')}
-              style={{ height: '40px', width: '40px', background: 'white' }}
               disabled={statusBtnSlide.end}
             >
-              +
+              <Right />
             </button>
+            <div className={`${styles.shadow} ${styles.shadowLeft}`}></div>
+            <div className={`${styles.shadow} ${styles.shadowRight}`}></div>
+            <div className={styles.shadow}></div>
             <Swiper
               onSlideChange={() => {
                 handleDisBtn()
@@ -206,7 +211,6 @@ const ArtPage = () => {
                   spaceBetween: 32,
                 },
               }}
-
             >
               {author.arts?.length &&
                 author.arts.map(art => (
