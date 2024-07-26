@@ -192,7 +192,6 @@ const ArtPage = () => {
             </button>
             <div className={`${styles.shadow} ${styles.shadowLeft}`}></div>
             <div className={`${styles.shadow} ${styles.shadowRight}`}></div>
-            <div className={styles.shadow}></div>
             <Swiper
               onSlideChange={() => {
                 handleDisBtn()

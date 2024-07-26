@@ -40,7 +40,6 @@ const artsSlice = createSlice({
         state.arts = action.payload
         state.isLoading = false
         state.error = null
-        console.log('arts: ', state.arts)
       })
       .addCase(fetchArtsData.rejected, (state, action) => {
         state.isLoading = false
@@ -53,7 +52,6 @@ const artsSlice = createSlice({
         state.popularArts = action.payload
         state.isLoading = false
         state.error = null
-        console.log('popularArts: ', state.popularArts)
       })
       .addCase(fetchPopularArts.rejected, (state, action) => {
         state.isLoading = false

@@ -290,18 +290,18 @@
 
 .shadowLeft {
   left: 0;
-  background: linear-gradient(
-    90.98deg,
-    rgba(255, 255, 255, 0.6) 0.74%,
-    rgba(255, 255, 255, 0) 46.14%
+  color: linear-gradient(
+    93.55deg,
+    rgba(15, 15, 15, 0.4) 2.92%,
+    rgba(138, 138, 138, 0.4) 120.16%
   );
 }
 
 .shadowRight {
   right: 0;
-  background: linear-gradient(
-    270.32deg,
-    rgba(255, 255, 255, 0.6) -3.54%,
-    rgba(255, 255, 255, 0) 39.84%
+  color: linear-gradient(
+    88.47deg,
+    rgba(29, 29, 29, 0.4) -3.48%,
+    rgba(138, 138, 138, 0.4) 137.1%
   );
 }

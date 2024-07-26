@@ -3,6 +3,7 @@
 .container {
   box-sizing: border-box;
   padding: 120px 0 120px 60px;
+  position: relative;
 }
 
 .title {
@@ -65,7 +66,7 @@
   display: block;
   object-fit: cover;
   object-position: top center;
-  transition: transform .6s ease;
+  transition: transform 0.6s ease;
   cursor: pointer;
 }
 
@@ -78,4 +79,57 @@
 .date {
   @include resetText;
   @include textSecondaryRegular12;
+}
+
+.button {
+  border: none;
+  position: absolute;
+  background-color: transparent;
+  top: 42%;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.buttonLeft {
+  left: 70px;
+  color: linear-gradient(
+    93.55deg,
+    rgba(15, 15, 15, 0.4) 2.92%,
+    rgba(138, 138, 138, 0.4) 120.16%
+  );
+}
+
+.buttonRight {
+  right: 35px;
+  color: linear-gradient(
+    88.47deg,
+    rgba(29, 29, 29, 0.4) -3.48%,
+    rgba(138, 138, 138, 0.4) 137.1%
+  );
+}
+
+.shadow {
+  position: absolute;
+  top: 28%;
+  width: 632px;
+  height: 370px;
+  z-index: 2;
+}
+
+.shadowLeft {
+  left: 0;
+  background: linear-gradient(
+    90.98deg,
+    rgba(255, 255, 255, 0.6) 0.74%,
+    rgba(255, 255, 255, 0) 46.14%
+  );
+}
+
+.shadowRight {
+  right: 0;
+  background: linear-gradient(
+    270.32deg,
+    rgba(255, 255, 255, 0.6) -3.54%,
+    rgba(255, 255, 255, 0) 39.84%
+  );
 }
