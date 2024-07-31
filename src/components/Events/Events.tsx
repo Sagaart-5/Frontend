@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'src/services/hooks'
 import { fetchEventsData, selectEvents } from 'src/services/slices/eventsSlice'
